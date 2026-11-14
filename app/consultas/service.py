@@ -41,8 +41,8 @@ def catalog(publication: Publication) -> list[dict]:
                 "variables": sorted({row.variable for row in rows if row.variable is not None}),
                 "territories": sorted({row.territory_id for row in rows if row.territory_id is not None}),
                 "units": sorted({row.unit for row in rows}) if isinstance(document, SeriesDocument) else sorted({
-                    row.metadata["rate_unit"] for row in rows
-                    if isinstance(row.metadata.get("rate_unit"), str)
+                    unit for row in rows
+                    if isinstance(unit := row.metadata.get("rate_unit", row.values.get("unit")), str)
                 }),
             })
     return datasets

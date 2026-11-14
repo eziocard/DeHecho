@@ -77,7 +77,8 @@ class ApiTests(unittest.TestCase):
                         "difference": 0.0, "unit": "°C", "n_used": 24}},
             {"id": "synthetic-ratio", "variable": "rain", "territory_id": "09",
              "values": {"type": "rate_ratio", "rate_ratio": 1.5, "increment": 40.0,
-                        "unit": "mm/mes", "n_used": 24, "ci95_marginal_low": 1.1, "ci95_marginal_high": 2.0}},
+                        "direction": "decrease", "unit": "mm/mes", "n_used": 24,
+                        "ci95_marginal_low": 1.1, "ci95_marginal_high": 2.0}},
         ]
         self.findings = [
             {"id": "synthetic-finding", "variable": "temperature", "territory_id": "09",
@@ -211,6 +212,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(contrast["reference_group"], "rest")
             self.assertEqual(ratio["rate_ratio"], 1.5)
             self.assertEqual(ratio["increment"], 40)
+            self.assertEqual(ratio["direction"], "decrease")
             self.assertEqual(ratio["unit"], "mm/mes")
             self.assertNotIn("p_holm", ratio)
             self.assertNotIn("difference", correlation)
@@ -286,6 +288,13 @@ class ApiTests(unittest.TestCase):
         with self.client() as client:
             with self.assertLogs("app.resultados.service", level="WARNING"):
                 response = client.get("/api/asociaciones", params={"dataset": "associations"})
+            self.assertEqual(response.status_code, 503)
+            self.assertEqual(response.json()["error"]["code"], "unsupported_result")
+
+    def test_rate_ratio_without_a_direction_is_not_assumed_to_be_an_increase(self):
+        self.rewrite_artifact("associations", lambda doc: doc["records"][2]["values"].pop("direction"))
+        with self.client() as client, self.assertLogs("app.resultados.service", level="WARNING"):
+            response = client.get("/api/asociaciones", params={"dataset": "associations"})
             self.assertEqual(response.status_code, 503)
             self.assertEqual(response.json()["error"]["code"], "unsupported_result")
 
@@ -481,7 +490,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(settings.project_root, Path(__file__).resolve().parents[1])
             with TestClient(create_app()) as client:
                 self.assertEqual(client.get("/health").json(), {"status": "ok"})
-                self.assertEqual(len(client.get("/api/catalogo").json()), 3)
+                self.assertEqual(len(client.get("/api/catalogo").json()), 5)
 
     def test_season_is_not_disaggregated_to_months(self):
         def seasonal(doc):

@@ -19,14 +19,14 @@ from app.datos.publication import AssetState, Publication
 logger = logging.getLogger(__name__)
 
 
-def load_environment(project_root: Path) -> Publication:
+def load_environment(project_root: Path, *, captured_files: dict[str, bytes] | None = None) -> Publication:
     files = {}
     input_states = {}
     for path in INPUT_PATHS:
         try:
-            files[path] = (project_root / path).read_bytes()
+            files[path] = captured_files[path] if captured_files is not None else (project_root / path).read_bytes()
             input_states[path] = AssetState(Status.READY)
-        except OSError:
+        except (OSError, KeyError):
             input_states[path] = AssetState(Status.UNAVAILABLE, (f"No se pudo leer {path}.",))
             logger.warning("No se pudo leer el archivo ambiental %s", project_root / path)
 

@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from app.api.routes import router
 from app.config import Settings
 from app.consultas.service import QueryError
-from app.datos.load_environment import load_environment
+from app.datos.load_data import load_data
 from app.datos.publication import Publication
 
 
@@ -22,13 +22,13 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(application: FastAPI):
-        application.state.publication = data_loader() if data_loader is not None else load_environment(settings.project_root)
+        application.state.publication = data_loader() if data_loader is not None else load_data(settings.project_root)
         yield
 
     application = FastAPI(
         title="DeHecho — Inspector estadístico",
-        version="0.2.0",
-        description="Consulta directa de los CSV y JSON ambientales del proyecto. Sin pronósticos ni recálculo por petición.",
+        version="0.3.0",
+        description="Consulta directa del ambiente y los resultados explicativos CONAF. Sin pronósticos ni recálculo por petición.",
         lifespan=lifespan,
     )
 

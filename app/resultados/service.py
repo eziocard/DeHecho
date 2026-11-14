@@ -65,7 +65,7 @@ def _association(row: ResultItem, metadata: Metadata):
     models = {
         "correlation": (CorrelationResponse, ("type", "statistic", "coefficient")),
         "group_contrast": (GroupContrastResponse, ("type", "group", "reference_group", "difference", "unit")),
-        "rate_ratio": (RateRatioResponse, ("type", "rate_ratio", "increment", "unit")),
+        "rate_ratio": (RateRatioResponse, ("type", "rate_ratio", "increment", "direction", "unit")),
     }
     model, fields = models[values["type"]]
     result.update({key: values[key] for key in fields})

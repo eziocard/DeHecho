@@ -85,7 +85,8 @@ class RateRatioResponse(AssociationBase):
     type: Literal["rate_ratio"]
     rate_ratio: float | None = Field(gt=0)
     increment: float = Field(gt=0, description="Incremento de la variable al que corresponde la razón de tasas.")
-    unit: str
+    direction: Literal["increase", "decrease"] = Field(description="Dirección del cambio en la anomalía mensual, no de la razón de tasas.")
+    unit: str = Field(description="Unidad del incremento; la razón de tasas es adimensional.")
 
 
 AssociationResponse = Annotated[

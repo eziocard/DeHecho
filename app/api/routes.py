@@ -67,9 +67,18 @@ def get_trends(params: Annotated[ResultQuery, Query()], publication: CurrentPubl
     response_model_exclude_unset=True,
 )
 def get_associations(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
+    """Usar dataset=asociaciones_conaf y territory_id=09 (opcional).
+
+    Cuatro asociaciones ajustadas del modelo explicativo, no pronósticos.
+    direction indica aumento o disminución de la anomalía mensual por increment unidades.
+    """
     return query_results(publication, kind=Kind.ASSOCIATIONS, **params.model_dump())
 
 
 @router.get("/api/hallazgos", tags=["resultados"], response_model=list[FindingResponse], response_model_exclude_unset=True)
 def get_findings(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
+    """Usar dataset=hallazgos_conaf; permite filtrar por variable ambiental y región 09.
+
+    Resúmenes deterministas del análisis existente, sin nuevas estimaciones.
+    """
     return query_results(publication, kind=Kind.FINDINGS, **params.model_dump())

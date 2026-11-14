@@ -8,7 +8,7 @@ import math
 from datetime import date
 from pathlib import PurePosixPath
 
-from app.datos.adapters import read_json
+from app.datos.adapters import hash_match, read_json
 from app.datos.models import (
     Metadata,
     ResultDocument,
@@ -122,18 +122,12 @@ class EnvironmentAdapter:
             return
         content = self.files[path]
         actual = digest(content)
-        if actual == expected:
-            match = "exact"
-        else:
-            lf = content.replace(b"\r\n", b"\n")
-            if expected not in (digest(lf), digest(lf.replace(b"\n", b"\r\n"))):
-                message = f"La huella de {path} no corresponde a {report}; revisar o reejecutar el análisis."
-                self.verification_errors[path] = message
-                if self.strict:
-                    raise ValueError(message)
-                match = "mismatch"
-            else:
-                match = "line_endings_only"
+        match = hash_match(content, expected)
+        if match == "mismatch":
+            message = f"La huella de {path} no corresponde a {report}; revisar o reejecutar el análisis."
+            self.verification_errors[path] = message
+            if self.strict:
+                raise ValueError(message)
         self.audit.append({
             "report": report, "file": path, "recorded_sha256": expected,
             "actual_sha256": actual, "match": match,

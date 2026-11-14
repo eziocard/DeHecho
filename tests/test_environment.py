@@ -20,8 +20,13 @@ from app.datos.environment import (
     csv_records,
     digest,
 )
+from app.datos.load_environment import load_environment
 
 PROJECT = Path(__file__).resolve().parents[1]
+
+
+def environment_app(root):
+    return create_app(Settings(project_root=root), data_loader=lambda: load_environment(root))
 
 
 class EnvironmentIntegrationTests(unittest.TestCase):
@@ -39,7 +44,7 @@ class EnvironmentIntegrationTests(unittest.TestCase):
             destination = cls.root / path
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(content)
-        cls.client = TestClient(create_app(Settings(project_root=cls.root)))
+        cls.client = TestClient(environment_app(cls.root))
         cls.client.__enter__()
         cls.addClassCleanup(cls.client.__exit__, None, None, None)
 
@@ -239,13 +244,12 @@ class EnvironmentIntegrationTests(unittest.TestCase):
     def test_changed_source_blocks_dependent_real_results_at_restart(self):
         with tempfile.TemporaryDirectory(prefix="dehecho-changed-input-") as folder:
             root = self.copy_inputs(folder)
-            settings = Settings(project_root=root)
-            with TestClient(create_app(settings)) as client:
+            with TestClient(environment_app(root)) as client:
                 before = client.get("/api/series", params={"dataset": "ambiente_region"}).json()
                 path = root / f"{CLEAN}/region_mensual_limpio.csv"
                 path.write_bytes(path.read_bytes().replace(b"16.026", b"16.027", 1))
                 self.assertEqual(client.get("/api/series", params={"dataset": "ambiente_region"}).json(), before)
-            with TestClient(create_app(settings)) as client:
+            with TestClient(environment_app(root)) as client:
                 available = {item["id"]: item["available"] for item in client.get("/api/catalogo").json()}
                 self.assertEqual(available, {"ambiente_region": False, "tendencias_ambientales": False, "ambiente_comunas": True})
                 self.assertEqual(client.app.state.publication.states[f"input:{CLEAN}/region_mensual_limpio.csv"].status.value, "stale")
@@ -271,7 +275,7 @@ class EnvironmentIntegrationTests(unittest.TestCase):
             root = self.copy_inputs(folder)
             path = root / TRENDS_CSV
             path.write_bytes(path.read_bytes().replace(b"0.651969", b"0.751969", 1))
-            with TestClient(create_app(Settings(project_root=root))) as client:
+            with TestClient(environment_app(root)) as client:
                 self.assertEqual(client.get("/health").json(), {"status": "degraded"})
                 response = client.get("/api/tendencias", params={"dataset": "tendencias_ambientales"})
                 self.assertEqual(response.status_code, 503)
@@ -283,7 +287,7 @@ class EnvironmentIntegrationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="dehecho-missing-input-") as folder:
             root = self.copy_inputs(folder)
             (root / f"{DATA}/region_mensual.csv").unlink()
-            with TestClient(create_app(Settings(project_root=root))) as client:
+            with TestClient(environment_app(root)) as client:
                 available = {item["id"]: item["available"] for item in client.get("/api/catalogo").json()}
                 self.assertEqual(available, {"ambiente_region": False, "ambiente_comunas": True, "tendencias_ambientales": False})
                 response = client.get("/api/series", params={"dataset": "ambiente_region"})
@@ -294,7 +298,7 @@ class EnvironmentIntegrationTests(unittest.TestCase):
         with (
             tempfile.TemporaryDirectory(prefix="dehecho-empty-project-") as folder,
             self.assertLogs("app.datos.load_environment", level="WARNING"),
-            TestClient(create_app(Settings(project_root=Path(folder)))) as client,
+            TestClient(environment_app(Path(folder))) as client,
         ):
             self.assertEqual(client.get("/health").json(), {"status": "degraded"})
             response = client.get("/api/series", params={"dataset": "ambiente_region"})
@@ -306,7 +310,7 @@ class EnvironmentIntegrationTests(unittest.TestCase):
             (root / TRENDS_REPORT).write_text("not json")
             with (
                 self.assertLogs("app.datos.load_environment", level="WARNING"),
-                TestClient(create_app(Settings(project_root=root))) as client,
+                TestClient(environment_app(root)) as client,
             ):
                 self.assertEqual(client.get("/health").json(), {"status": "degraded"})
                 response = client.get("/api/tendencias", params={"dataset": "tendencias_ambientales"})

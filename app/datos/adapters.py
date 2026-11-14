@@ -1,5 +1,6 @@
-"""Adaptadores de publicaciones. Los lectores de fuentes originales quedan pendientes."""
+"""Lectura JSON y verificación de integridad compartidas por los adaptadores."""
 
+import hashlib
 import json
 from typing import Protocol
 
@@ -14,6 +15,19 @@ from app.datos.models import (
 )
 
 JSON_OBJECT = TypeAdapter(dict[str, JsonValue])
+
+
+def hash_match(content: bytes, expected: str) -> str:
+    """Equivalencia histórica limitada a saltos de línea; no normaliza otros bytes."""
+    if hashlib.sha256(content).hexdigest() == expected:
+        return "exact"
+    lf = content.replace(b"\r\n", b"\n")
+    if expected in (
+        hashlib.sha256(lf).hexdigest(),
+        hashlib.sha256(lf.replace(b"\n", b"\r\n")).hexdigest(),
+    ):
+        return "line_endings_only"
+    return "mismatch"
 
 
 def read_json(content: bytes) -> dict[str, JsonValue]:

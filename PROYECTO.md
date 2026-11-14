@@ -13,7 +13,7 @@ Así se responde al desafío [Earth System Trend Detective de NASA Space Apps 20
 - Tendencias 2014–2023, con magnitud, incertidumbre y evidencia estadística.
 - Asociaciones con incendios, episodios y resultados del modelo explicativo ya estimado.
 
-Los análisis están disponibles en `analisis.ipynb` y sus resultados en `datos_mensuales_2014_2023/limpios/`. La API lee directamente las series y tendencias ambientales; falta integrar CONAF y sus hallazgos, con reejecución solo si cambian sus datos efectivos. No se recalculan en cada consulta. Véase [ARQUITECTURA.md](ARQUITECTURA.md).
+Los análisis están disponibles en `analisis.ipynb` y sus resultados en `datos_mensuales_2014_2023/limpios/`. La API sirve series y tendencias ambientales, los cuatro efectos ajustados del modelo CONAF y sus resúmenes. Correlaciones y contrastes quedan para una incorporación posterior. Solo se requiere reejecución si cambian los datos efectivos o el análisis; no se recalcula por consulta. Véase [ARQUITECTURA.md](ARQUITECTURA.md).
 
 ## Datos y límites importantes
 
