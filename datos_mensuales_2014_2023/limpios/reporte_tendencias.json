@@ -1,0 +1,838 @@
+{
+  "scope": {
+    "start": "2014-01",
+    "end": "2023-12",
+    "environmental_months": 120,
+    "communes": 32,
+    "candidate_rows": 132,
+    "estimated_series": 131,
+    "excluded_series": 1,
+    "independent_of_CONAF_join": true
+  },
+  "model": "OLS: variable ~ intercept + 11 calendar-month indicators + centered time in decades; constant linear trend across months.",
+  "primary_inference": {
+    "covariance": "Newey-West HAC",
+    "kernel": "Bartlett",
+    "lags": 12,
+    "finite_sample_correction": true,
+    "distribution": "asymptotic normal",
+    "alpha": 0.05,
+    "CI95": "marginal, not simultaneous; not a prediction interval"
+  },
+  "multiplicity": {
+    "method": "Holm",
+    "primary_regional_family": 4,
+    "exploratory_communal_family": 127,
+    "families_include_all_four_variables": true,
+    "recomputed_for_each_sensitivity_bandwidth": true
+  },
+  "data_quality": {
+    "soil_minimum_spatial_coverage_pct": 80.0,
+    "required_usable_months": 120,
+    "removed_or_imputed_measurements": 0,
+    "excluded_rows": [
+      {
+        "geography_level": "commune",
+        "territory_id": "09116",
+        "territory_name": "Saavedra",
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "variable_label": "Humedad del suelo 0–10 cm",
+        "native_unit": "kg/m²",
+        "rate_unit": "kg/m²/década",
+        "period_start": "2014-01",
+        "period_end": "2023-12",
+        "n_expected": 120,
+        "n_measurements": 120,
+        "n_used": 0,
+        "usable_temporal_coverage_pct": 0.0,
+        "minimum_spatial_coverage_pct": 36.49,
+        "status": "insufficient_coverage",
+        "exclusion_reason": "Soil coverage below 80%; values retained in source, excluded from trend.",
+        "slope_per_decade": null,
+        "slope_per_year": null,
+        "fitted_change_over_observed_span": null,
+        "residual_df": null,
+        "residual_acf1": null,
+        "residual_acf12": null,
+        "HAC_lags": null,
+        "standard_error_per_decade": null,
+        "CI95_low_per_decade": null,
+        "CI95_high_per_decade": null,
+        "p_raw": null,
+        "p_holm": null,
+        "family_n_tests": null,
+        "direction": "not_estimated",
+        "p_holm_HAC4": null,
+        "p_holm_HAC8": null,
+        "p_holm_HAC12": null,
+        "p_holm_HAC18": null,
+        "evidence_all_bandwidths": null
+      }
+    ],
+    "spatial_coverage_pct_missing_for_RH": "Not supplied as a coverage column; not assumed to be 100%.",
+    "administrative_reference": {
+      "region": "La Araucanía",
+      "region_id": "09",
+      "communes": 32,
+      "codes": "Preserve region_id and commune_id as strings, including leading zeros.",
+      "source": "https://ideserver.sma.gob.cl/arcgis/rest/services/IDE/Limites/MapServer/2",
+      "reference": "SMA fixed 2024 administrative reference; not historical boundaries by year.",
+      "boundary_sha256": "5964970c601b4a1dbf2317a64fea5223b811cf68da8d9f96018e53064ca2dfd7"
+    }
+  },
+  "units": {
+    "temperature_2m_c": {
+      "observations": "°C",
+      "trend": "°C/década"
+    },
+    "precipitation_mm": {
+      "observations": "mm/mes",
+      "trend": "mm/mes por década"
+    },
+    "relative_humidity_2m_pct": {
+      "observations": "%",
+      "trend": "puntos porcentuales/década"
+    },
+    "soil_moisture_0_10cm_kgm2": {
+      "observations": "kg/m²",
+      "trend": "kg/m²/década"
+    }
+  },
+  "regional_results": [
+    {
+      "variable": "temperature_2m_c",
+      "geography_level": "region",
+      "territory_id": "09",
+      "territory_name": "La Araucanía",
+      "variable_label": "Temperatura media",
+      "native_unit": "°C",
+      "rate_unit": "°C/década",
+      "period_start": "2014-01",
+      "period_end": "2023-12",
+      "n_expected": 120,
+      "n_measurements": 120,
+      "n_used": 120,
+      "usable_temporal_coverage_pct": 100.0,
+      "minimum_spatial_coverage_pct": 100.0,
+      "status": "uncertain_trend",
+      "exclusion_reason": "",
+      "slope_per_decade": 0.651969696969704,
+      "slope_per_year": 0.06519696969697,
+      "fitted_change_over_observed_span": 0.646536616161623,
+      "residual_df": 107.0,
+      "residual_acf1": 0.337382391168173,
+      "residual_acf12": -0.15558916625606,
+      "HAC_lags": 12.0,
+      "standard_error_per_decade": 0.369781316707969,
+      "CI95_low_per_decade": -0.072788365933715,
+      "CI95_high_per_decade": 1.376727759873123,
+      "p_raw": 0.077879859702374,
+      "p_holm": 0.134280611062723,
+      "family_n_tests": 4.0,
+      "direction": "increasing",
+      "p_holm_HAC4": 0.231640843256182,
+      "p_holm_HAC8": 0.23421128862964,
+      "p_holm_HAC12": 0.134280611062723,
+      "p_holm_HAC18": 0.065415627872151,
+      "evidence_all_bandwidths": false
+    },
+    {
+      "variable": "precipitation_mm",
+      "geography_level": "region",
+      "territory_id": "09",
+      "territory_name": "La Araucanía",
+      "variable_label": "Precipitación mensual",
+      "native_unit": "mm/mes",
+      "rate_unit": "mm/mes por década",
+      "period_start": "2014-01",
+      "period_end": "2023-12",
+      "n_expected": 120,
+      "n_measurements": 120,
+      "n_used": 120,
+      "usable_temporal_coverage_pct": 100.0,
+      "minimum_spatial_coverage_pct": 100.0,
+      "status": "uncertain_trend",
+      "exclusion_reason": "",
+      "slope_per_decade": -37.09094949494953,
+      "slope_per_year": -3.709094949494953,
+      "fitted_change_over_observed_span": -36.78185824915828,
+      "residual_df": 107.0,
+      "residual_acf1": 0.173186050429851,
+      "residual_acf12": -0.05793098967739,
+      "HAC_lags": 12.0,
+      "standard_error_per_decade": 17.827859918826675,
+      "CI95_low_per_decade": -72.03291285727498,
+      "CI95_high_per_decade": -2.148986132624074,
+      "p_raw": 0.037479248838348,
+      "p_holm": 0.112437746515044,
+      "family_n_tests": 4.0,
+      "direction": "decreasing",
+      "p_holm_HAC4": 0.18147549902911,
+      "p_holm_HAC8": 0.172330848463585,
+      "p_holm_HAC12": 0.112437746515044,
+      "p_holm_HAC18": 0.065415627872151,
+      "evidence_all_bandwidths": false
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "geography_level": "region",
+      "territory_id": "09",
+      "territory_name": "La Araucanía",
+      "variable_label": "Humedad relativa",
+      "native_unit": "%",
+      "rate_unit": "puntos porcentuales/década",
+      "period_start": "2014-01",
+      "period_end": "2023-12",
+      "n_expected": 120,
+      "n_measurements": 120,
+      "n_used": 120,
+      "usable_temporal_coverage_pct": 100.0,
+      "minimum_spatial_coverage_pct": null,
+      "status": "evidence_decreasing",
+      "exclusion_reason": "",
+      "slope_per_decade": -9.343242424242398,
+      "slope_per_year": -0.93432424242424,
+      "fitted_change_over_observed_span": -9.265382070707044,
+      "residual_df": 107.0,
+      "residual_acf1": 0.472475503544653,
+      "residual_acf12": 0.194506786070158,
+      "HAC_lags": 12.0,
+      "standard_error_per_decade": 1.789072132250632,
+      "CI95_low_per_decade": -12.849759369197916,
+      "CI95_high_per_decade": -5.83672547928688,
+      "p_raw": 1.76623142e-07,
+      "p_holm": 7.06492567e-07,
+      "family_n_tests": 4.0,
+      "direction": "decreasing",
+      "p_holm_HAC4": 5.56363837e-07,
+      "p_holm_HAC8": 2.387892856e-06,
+      "p_holm_HAC12": 7.06492567e-07,
+      "p_holm_HAC18": 1.411966688e-06,
+      "evidence_all_bandwidths": true
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "geography_level": "region",
+      "territory_id": "09",
+      "territory_name": "La Araucanía",
+      "variable_label": "Humedad del suelo 0–10 cm",
+      "native_unit": "kg/m²",
+      "rate_unit": "kg/m²/década",
+      "period_start": "2014-01",
+      "period_end": "2023-12",
+      "n_expected": 120,
+      "n_measurements": 120,
+      "n_used": 120,
+      "usable_temporal_coverage_pct": 100.0,
+      "minimum_spatial_coverage_pct": 98.85,
+      "status": "uncertain_trend",
+      "exclusion_reason": "",
+      "slope_per_decade": -1.478126262626251,
+      "slope_per_year": -0.147812626262625,
+      "fitted_change_over_observed_span": -1.465808543771033,
+      "residual_df": 107.0,
+      "residual_acf1": 0.571425268050371,
+      "residual_acf12": -0.03016381798796,
+      "HAC_lags": 12.0,
+      "standard_error_per_decade": 0.807395575919038,
+      "CI95_low_per_decade": -3.060592512704541,
+      "CI95_high_per_decade": 0.104339987452038,
+      "p_raw": 0.067140305531362,
+      "p_holm": 0.134280611062723,
+      "family_n_tests": 4.0,
+      "direction": "decreasing",
+      "p_holm_HAC4": 0.231640843256182,
+      "p_holm_HAC8": 0.23421128862964,
+      "p_holm_HAC12": 0.134280611062723,
+      "p_holm_HAC18": 0.065415627872151,
+      "evidence_all_bandwidths": false
+    }
+  ],
+  "communal_status_counts": [
+    {
+      "variable": "temperature_2m_c",
+      "evidence_decreasing": 0,
+      "insufficient_coverage": 0,
+      "uncertain_trend": 32
+    },
+    {
+      "variable": "precipitation_mm",
+      "evidence_decreasing": 0,
+      "insufficient_coverage": 0,
+      "uncertain_trend": 32
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "evidence_decreasing": 32,
+      "insufficient_coverage": 0,
+      "uncertain_trend": 0
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "evidence_decreasing": 0,
+      "insufficient_coverage": 1,
+      "uncertain_trend": 31
+    }
+  ],
+  "HAC_bandwidths": [
+    4,
+    8,
+    12,
+    18
+  ],
+  "regional_bandwidth_sensitivity": [
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "temperature_2m_c",
+      "HAC_lags": 4,
+      "slope_per_decade": 0.651969696969704,
+      "standard_error_per_decade": 0.450789929101145,
+      "CI95_low_per_decade": -0.231562328661906,
+      "CI95_high_per_decade": 1.535501722601313,
+      "p_raw": 0.148097912876492,
+      "p_holm": 0.231640843256182,
+      "family_n_tests": 4,
+      "label": "Temperatura media"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "temperature_2m_c",
+      "HAC_lags": 8,
+      "slope_per_decade": 0.651969696969704,
+      "standard_error_per_decade": 0.431046508263679,
+      "CI95_low_per_decade": -0.192865934888854,
+      "CI95_high_per_decade": 1.496805328828262,
+      "p_raw": 0.130399722511529,
+      "p_holm": 0.23421128862964,
+      "family_n_tests": 4,
+      "label": "Temperatura media"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "temperature_2m_c",
+      "HAC_lags": 12,
+      "slope_per_decade": 0.651969696969704,
+      "standard_error_per_decade": 0.369781316707969,
+      "CI95_low_per_decade": -0.072788365933715,
+      "CI95_high_per_decade": 1.376727759873123,
+      "p_raw": 0.077879859702374,
+      "p_holm": 0.134280611062723,
+      "family_n_tests": 4,
+      "label": "Temperatura media"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "temperature_2m_c",
+      "HAC_lags": 18,
+      "slope_per_decade": 0.651969696969704,
+      "standard_error_per_decade": 0.28423821685281,
+      "CI95_low_per_decade": 0.094873028908311,
+      "CI95_high_per_decade": 1.209066365031096,
+      "p_raw": 0.021805209290717,
+      "p_holm": 0.065415627872151,
+      "family_n_tests": 4,
+      "label": "Temperatura media"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "precipitation_mm",
+      "HAC_lags": 4,
+      "slope_per_decade": -37.09094949494953,
+      "standard_error_per_decade": 19.758744242209417,
+      "CI95_low_per_decade": -75.81737658941815,
+      "CI95_high_per_decade": 1.635477599519092,
+      "p_raw": 0.060491833009703,
+      "p_holm": 0.18147549902911,
+      "family_n_tests": 4,
+      "label": "Precipitación mensual"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "precipitation_mm",
+      "HAC_lags": 8,
+      "slope_per_decade": -37.09094949494953,
+      "standard_error_per_decade": 19.52237414081696,
+      "CI95_low_per_decade": -75.35409970366686,
+      "CI95_high_per_decade": 1.172200713767801,
+      "p_raw": 0.057443616154528,
+      "p_holm": 0.172330848463585,
+      "family_n_tests": 4,
+      "label": "Precipitación mensual"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "precipitation_mm",
+      "HAC_lags": 12,
+      "slope_per_decade": -37.09094949494953,
+      "standard_error_per_decade": 17.827859918826675,
+      "CI95_low_per_decade": -72.03291285727498,
+      "CI95_high_per_decade": -2.148986132624074,
+      "p_raw": 0.037479248838348,
+      "p_holm": 0.112437746515044,
+      "family_n_tests": 4,
+      "label": "Precipitación mensual"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "precipitation_mm",
+      "HAC_lags": 18,
+      "slope_per_decade": -37.09094949494953,
+      "standard_error_per_decade": 16.907117869236135,
+      "CI95_low_per_decade": -70.22829160102593,
+      "CI95_high_per_decade": -3.953607388873124,
+      "p_raw": 0.028249304552247,
+      "p_holm": 0.065415627872151,
+      "family_n_tests": 4,
+      "label": "Precipitación mensual"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "relative_humidity_2m_pct",
+      "HAC_lags": 4,
+      "slope_per_decade": -9.343242424242398,
+      "standard_error_per_decade": 1.7741080713239,
+      "CI95_low_per_decade": -12.82043034871906,
+      "CI95_high_per_decade": -5.866054499765736,
+      "p_raw": 1.39090959e-07,
+      "p_holm": 5.56363837e-07,
+      "family_n_tests": 4,
+      "label": "Humedad relativa"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "relative_humidity_2m_pct",
+      "HAC_lags": 8,
+      "slope_per_decade": -9.343242424242398,
+      "standard_error_per_decade": 1.871570470363028,
+      "CI95_low_per_decade": -13.011453140682622,
+      "CI95_high_per_decade": -5.675031707802173,
+      "p_raw": 5.96973214e-07,
+      "p_holm": 2.387892856e-06,
+      "family_n_tests": 4,
+      "label": "Humedad relativa"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "relative_humidity_2m_pct",
+      "HAC_lags": 12,
+      "slope_per_decade": -9.343242424242398,
+      "standard_error_per_decade": 1.789072132250632,
+      "CI95_low_per_decade": -12.849759369197916,
+      "CI95_high_per_decade": -5.83672547928688,
+      "p_raw": 1.76623142e-07,
+      "p_holm": 7.06492567e-07,
+      "family_n_tests": 4,
+      "label": "Humedad relativa"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "relative_humidity_2m_pct",
+      "HAC_lags": 18,
+      "slope_per_decade": -9.343242424242398,
+      "standard_error_per_decade": 1.834632748355545,
+      "CI95_low_per_decade": -12.939056535877002,
+      "CI95_high_per_decade": -5.747428312607793,
+      "p_raw": 3.52991672e-07,
+      "p_holm": 1.411966688e-06,
+      "family_n_tests": 4,
+      "label": "Humedad relativa"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "HAC_lags": 4,
+      "slope_per_decade": -1.478126262626251,
+      "standard_error_per_decade": 0.939948229640342,
+      "CI95_low_per_decade": -3.320390940053506,
+      "CI95_high_per_decade": 0.364138414801003,
+      "p_raw": 0.115820421628091,
+      "p_holm": 0.231640843256182,
+      "family_n_tests": 4,
+      "label": "Humedad del suelo 0–10 cm"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "HAC_lags": 8,
+      "slope_per_decade": -1.478126262626251,
+      "standard_error_per_decade": 0.943260849641069,
+      "CI95_low_per_decade": -3.326883555949398,
+      "CI95_high_per_decade": 0.370631030696895,
+      "p_raw": 0.11710564431482,
+      "p_holm": 0.23421128862964,
+      "family_n_tests": 4,
+      "label": "Humedad del suelo 0–10 cm"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "HAC_lags": 12,
+      "slope_per_decade": -1.478126262626251,
+      "standard_error_per_decade": 0.807395575919038,
+      "CI95_low_per_decade": -3.060592512704541,
+      "CI95_high_per_decade": 0.104339987452038,
+      "p_raw": 0.067140305531362,
+      "p_holm": 0.134280611062723,
+      "family_n_tests": 4,
+      "label": "Humedad del suelo 0–10 cm"
+    },
+    {
+      "geography_level": "region",
+      "territory_id": "09",
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "HAC_lags": 18,
+      "slope_per_decade": -1.478126262626251,
+      "standard_error_per_decade": 0.723395418212006,
+      "CI95_low_per_decade": -2.895955228903073,
+      "CI95_high_per_decade": -0.06029729634943,
+      "p_raw": 0.041021053187544,
+      "p_holm": 0.065415627872151,
+      "family_n_tests": 4,
+      "label": "Humedad del suelo 0–10 cm"
+    }
+  ],
+  "communal_evidence_counts_by_bandwidth": [
+    {
+      "variable": "temperature_2m_c",
+      "4": 0,
+      "8": 0,
+      "12": 0,
+      "18": 0
+    },
+    {
+      "variable": "precipitation_mm",
+      "4": 0,
+      "8": 0,
+      "12": 0,
+      "18": 6
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "4": 32,
+      "8": 32,
+      "12": 32,
+      "18": 32
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "4": 0,
+      "8": 0,
+      "12": 0,
+      "18": 0
+    }
+  ],
+  "regional_omit_year_sensitivity": [
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2014,
+      "n_used": 108,
+      "slope_per_decade": 0.590347222222227
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2015,
+      "n_used": 108,
+      "slope_per_decade": 0.791700268817208
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2016,
+      "n_used": 108,
+      "slope_per_decade": 0.794368872549022
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2017,
+      "n_used": 108,
+      "slope_per_decade": 0.597239583333334
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2018,
+      "n_used": 108,
+      "slope_per_decade": 0.621587837837843
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2019,
+      "n_used": 108,
+      "slope_per_decade": 0.659194819819821
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2020,
+      "n_used": 108,
+      "slope_per_decade": 0.675607638888891
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2021,
+      "n_used": 108,
+      "slope_per_decade": 0.516213235294121
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2022,
+      "n_used": 108,
+      "slope_per_decade": 0.748985215053764
+    },
+    {
+      "variable": "temperature_2m_c",
+      "omitted_year": 2023,
+      "n_used": 108,
+      "slope_per_decade": 0.506597222222226
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2014,
+      "n_used": 108,
+      "slope_per_decade": -34.746083333333345
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2015,
+      "n_used": 108,
+      "slope_per_decade": -30.7637956989247
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2016,
+      "n_used": 108,
+      "slope_per_decade": -45.18971323529408
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2017,
+      "n_used": 108,
+      "slope_per_decade": -34.978128472222174
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2018,
+      "n_used": 108,
+      "slope_per_decade": -35.89661036036031
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2019,
+      "n_used": 108,
+      "slope_per_decade": -36.602823198198095
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2020,
+      "n_used": 108,
+      "slope_per_decade": -35.585739583333364
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2021,
+      "n_used": 108,
+      "slope_per_decade": -26.179737745098027
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2022,
+      "n_used": 108,
+      "slope_per_decade": -37.04005779569894
+    },
+    {
+      "variable": "precipitation_mm",
+      "omitted_year": 2023,
+      "n_used": 108,
+      "slope_per_decade": -57.429999999999936
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2014,
+      "n_used": 108,
+      "slope_per_decade": -10.545305555555549
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2015,
+      "n_used": 108,
+      "slope_per_decade": -9.809665322580617
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2016,
+      "n_used": 108,
+      "slope_per_decade": -9.683712009803882
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2017,
+      "n_used": 108,
+      "slope_per_decade": -8.973798611111082
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2018,
+      "n_used": 108,
+      "slope_per_decade": -9.170636261261205
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2019,
+      "n_used": 108,
+      "slope_per_decade": -9.352300675675636
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2020,
+      "n_used": 108,
+      "slope_per_decade": -9.625059027777766
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2021,
+      "n_used": 108,
+      "slope_per_decade": -9.190868872549018
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2022,
+      "n_used": 108,
+      "slope_per_decade": -8.720224462365582
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "omitted_year": 2023,
+      "n_used": 108,
+      "slope_per_decade": -8.42506944444439
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2014,
+      "n_used": 108,
+      "slope_per_decade": -0.717611111111121
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2015,
+      "n_used": 108,
+      "slope_per_decade": -1.810288978494616
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2016,
+      "n_used": 108,
+      "slope_per_decade": -1.963729166666643
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2017,
+      "n_used": 108,
+      "slope_per_decade": -1.278131944444434
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2018,
+      "n_used": 108,
+      "slope_per_decade": -1.37592792792792
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2019,
+      "n_used": 108,
+      "slope_per_decade": -1.411804054054042
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2020,
+      "n_used": 108,
+      "slope_per_decade": -1.288888888888887
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2021,
+      "n_used": 108,
+      "slope_per_decade": -1.095120098039206
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2022,
+      "n_used": 108,
+      "slope_per_decade": -2.128375000000013
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "omitted_year": 2023,
+      "n_used": 108,
+      "slope_per_decade": -1.731402777777771
+    }
+  ],
+  "regional_omit_year_summary": [
+    {
+      "variable": "temperature_2m_c",
+      "min": 0.506597222222226,
+      "max": 0.794368872549022
+    },
+    {
+      "variable": "precipitation_mm",
+      "min": -57.429999999999936,
+      "max": -26.179737745098027
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "min": -10.545305555555549,
+      "max": -8.42506944444439
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "min": -2.128375000000013,
+      "max": -0.717611111111121
+    }
+  ],
+  "regional_evidence_all_bandwidths": [
+    "relative_humidity_2m_pct"
+  ],
+  "validation": {
+    "unique_territory_variable_keys": true,
+    "consecutive_calendar_all_fitted_series": true,
+    "all_131_slopes_match_independently_fitted_annual_mean_slopes": true,
+    "132_row_CSV_roundtrip_verified": true
+  },
+  "limitations": [
+    "Ten-year window; not proof of a persistent long-term climate trend or its cause.",
+    "HAC inference is asymptotic and bandwidth-sensitive; shared pixels do not create independent spatial replicates.",
+    "A common linear slope is a summary and may obscure nonlinear or season-specific changes.",
+    "Precipitation trend concerns monthly totals, not annual accumulation; relative humidity differences are percentage points.",
+    "IC95 are marginal while status uses multiplicity-adjusted p; these criteria can differ.",
+    "Native model/satellite products and a fixed 2024 administrative reference; source changes and aggregation may affect interpretation.",
+    "No forecasting, attribution of fire causes, or operational alerts."
+  ],
+  "source_sha256": {
+    "datos_mensuales_2014_2023\\region_mensual.csv": "23e19db8d6e0aea2d3f4366ccf1be9bbe8b3dab33cc7b4c46fd07029e2cbaa63",
+    "datos_mensuales_2014_2023\\comunas_mensual.csv": "ba1d284397f7f5d06fee223d611435a63ab01feb28aeac416d60cc08a02b583c",
+    "datos_mensuales_2014_2023\\metadatos.json": "62c3b0bf6ffb408b039d0c98b273b279e854eb7dc7934f1ed22c2c4f5e4de242",
+    "datos_mensuales_2014_2023\\limpios\\region_mensual_limpio.csv": "f3be7c486ed75eaa86a6d0b2618c47d298caf8e588a2abf4dbef54578f21ff6f",
+    "datos_mensuales_2014_2023\\limpios\\comunas_mensual_limpio.csv": "b9e446479af066053e7d3a52f42f64428af741622ee32f986fe9611170119275",
+    "datos_mensuales_2014_2023\\limpios\\reporte_validacion.json": "57c79a710b1493093dc4fbbbe3d392609af0385a4d29cbf58218920d607882d0"
+  },
+  "output": {
+    "file": "tendencias_ambientales_2014_2023.csv",
+    "rows": 132,
+    "sha256": "b42ffaee56d7bab8dbbc6a966231a969f9f7a5e09c937eb8ec33c94b6e32ade9"
+  },
+  "documentation": [
+    "https://www.statsmodels.org/stable/generated/statsmodels.stats.sandwich_covariance.cov_hac.html",
+    "https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html"
+  ]
+}
