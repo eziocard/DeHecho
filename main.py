@@ -1,8 +1,3 @@
-from fastapi import FastAPI
+from app.api.application import create_app
 
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app = create_app()

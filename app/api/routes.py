@@ -1,0 +1,75 @@
+from typing import Annotated
+
+from fastapi import APIRouter, Depends, Query, Request
+
+from app.api.schemas import (
+    AssociationResponse,
+    DatasetSummary,
+    ErrorResponse,
+    FindingResponse,
+    HealthResponse,
+    ResultQuery,
+    SeriesQuery,
+    SeriesResponse,
+    TrendResponse,
+)
+from app.consultas.service import catalog, query_series
+from app.datos.models import Kind, Status
+from app.datos.publication import Publication
+from app.resultados.service import query_results
+
+router = APIRouter(responses={
+    404: {"model": ErrorResponse, "description": "El conjunto no existe."},
+    422: {"model": ErrorResponse, "description": "Parámetros incompatibles o no válidos."},
+    503: {"model": ErrorResponse, "description": "Publicación o conjunto no disponible, inválido o desactualizado."},
+})
+
+
+def get_publication(request: Request) -> Publication:
+    return request.app.state.publication
+
+
+CurrentPublication = Annotated[Publication, Depends(get_publication)]
+
+
+@router.get("/", include_in_schema=False)
+def root():
+    return {"name": "DeHecho", "docs": "/docs", "health": "/health"}
+
+
+@router.get("/health", tags=["estado"], response_model=HealthResponse)
+def health(publication: CurrentPublication):
+    artifacts = publication.manifest.artifacts if publication.manifest else []
+    ready = artifacts and all(publication.states[item.id].status == Status.READY for item in artifacts)
+    return {"status": "ok" if ready else "degraded"}
+
+
+@router.get("/api/catalogo", tags=["consulta"], response_model=list[DatasetSummary])
+def get_catalog(publication: CurrentPublication):
+    return catalog(publication)
+
+
+@router.get("/api/series", tags=["consulta"], response_model=list[SeriesResponse], response_model_exclude_unset=True)
+def get_series(params: Annotated[SeriesQuery, Query()], publication: CurrentPublication):
+    """Filtra por solapamiento de períodos; no desagrega observaciones."""
+    return query_series(publication, **params.model_dump())
+
+
+@router.get("/api/tendencias", tags=["resultados"], response_model=list[TrendResponse], response_model_exclude_unset=True)
+def get_trends(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
+    """Conserva el período y la familia de pruebas de la estimación publicada."""
+    return query_results(publication, kind=Kind.TRENDS, **params.model_dump())
+
+
+@router.get(
+    "/api/asociaciones", tags=["resultados"],
+    response_model=list[AssociationResponse],
+    response_model_exclude_unset=True,
+)
+def get_associations(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
+    return query_results(publication, kind=Kind.ASSOCIATIONS, **params.model_dump())
+
+
+@router.get("/api/hallazgos", tags=["resultados"], response_model=list[FindingResponse], response_model_exclude_unset=True)
+def get_findings(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
+    return query_results(publication, kind=Kind.FINDINGS, **params.model_dump())
