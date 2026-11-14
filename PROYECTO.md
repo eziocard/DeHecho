@@ -1,5 +1,7 @@
 # DeHecho — Explorador ambiental y de incendios de La Araucanía
 
+> **Prioridad actual:** detectar y contrastar tendencias ambientales durante 2014–2023. La predicción queda pospuesta. Los análisis de CONAF existentes se conservan como contexto asociativo.
+
 ## Idea del proyecto
 
 Desarrollar una herramienta interactiva que permita **explorar cómo cambian las condiciones ambientales de La Araucanía, relacionarlas con la actividad de incendios y evaluar su utilidad para anticiparla**.
@@ -36,6 +38,8 @@ La **predicción es una extensión del análisis**, no un sustituto de la detecc
 | `datos_mensuales_2014_2023/limpios/region_mensual_limpio.csv` | Variables ambientales regionales mensuales de 2014–2023. | Series, anomalías, tendencias y relaciones con incendios. |
 | `datos_mensuales_2014_2023/limpios/comunas_mensual_limpio.csv` | Variables ambientales de 32 comunas durante 120 meses. | Visualización espacial y análisis comunal. |
 | `datos_mensuales_2014_2023/limpios/reporte_validacion.json` | Controles, unidades corregidas y banderas de cobertura. | Trazabilidad y calidad. |
+| `datos_mensuales_2014_2023/limpios/tendencias_ambientales_2014_2023.csv` | 132 combinaciones territorio–variable: 131 tendencias ajustadas y una exclusión explícita para suelo de Saavedra. | Pendientes, IC95 %, p corregidos, cobertura y sensibilidad temporal; resultados estimados, no nuevas mediciones. |
+| `datos_mensuales_2014_2023/limpios/reporte_tendencias.json` | Método, fuentes, hashes, multiplicidad y controles de sensibilidad. | Reproducción del análisis de tendencias. |
 
 Los productos ambientales incluyen fuentes NASA como MERRA-2, GLDAS, GPM y NASA POWER; sus características y agregaciones se documentan en `datos_mensuales_2014_2023/metadatos.json`.
 
@@ -112,7 +116,9 @@ La salida será un conteo esperado con incertidumbre y métricas de desempeño f
 
 ## Alcance inicial y estado
 
-**Disponible:** limpieza y exploración ambiental en `analisis.ipynb`; cruces y siete figuras comparativas en `comparacion_conaf_clima.ipynb`.
+**Disponible:** limpieza y exploración ambiental en `analisis.ipynb`; cruces y siete figuras comparativas en `comparacion_conaf_clima.ipynb`. Las secciones **26–31 de `analisis.ipynb`** implementan tendencias ambientales regionales y comunales para los 120 meses de 2014–2023.
+
+La estimación principal ajusta el mes calendario, usa incertidumbre HAC a doce rezagos y aplica Holm por separado a cuatro pruebas regionales y 127 comunales. Se revisan ventanas HAC de 4, 8 y 18 meses y la sensibilidad de las pendientes regionales al retirar cada año. Los IC95 % son marginales; la clasificación de evidencia utiliza el p corregido. La humedad relativa presenta descenso con evidencia en la región y las 32 comunas en las cuatro ventanas examinadas. Las otras tres variables no alcanzan evidencia tras Holm en la especificación principal; ello no demuestra ausencia de cambio. Las comunas comparten píxeles de origen y no constituyen 32 réplicas espaciales independientes.
 
 **MVP propuesto:**
 
@@ -122,6 +128,6 @@ La salida será un conteo esperado con incertidumbre y métricas de desempeño f
 4. Visualización de conteos CONAF regionales mensuales y comunales por temporada, sin inventar puntos ni desagregaciones.
 5. Comparación de anomalías y relaciones con rezagos.
 
-**Etapa posterior:** módulo experimental de predicción regional, incorporado solo junto a su evaluación y limitaciones.
+**Etapa posterior, pospuesta:** módulo experimental de predicción regional, incorporado solo junto a su evaluación y limitaciones.
 
-La interfaz, las pruebas de tendencia y el modelo predictivo se describen aquí como funcionalidades propuestas; no se consideran implementadas por los notebooks existentes. El alcance no exige incorporar nuevas fuentes de mediciones.
+La interfaz y el modelo predictivo siguen siendo funcionalidades propuestas. Las estimaciones y pruebas de tendencia ya están implementadas en el notebook y sus dos archivos de resultados. El alcance no exige incorporar nuevas fuentes de mediciones.

@@ -595,7 +595,8 @@
     "strongest_anomaly_spearman_value": 0.5835311194034758
   },
   "road_commune_id_missing_is_intentional_for_regional_row": true,
-  "CONAF_join_performed": false,
+  "CONAF_join_performed_in_this_validation_stage": false,
+  "additional_exploration_report": "hallazgos_exploratorios.json",
   "outputs": {
     "comunas_mensual_limpio.csv": {
       "rows": 3840,

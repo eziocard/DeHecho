@@ -1,0 +1,2627 @@
+{
+  "scope": {
+    "environmental_months": 120,
+    "communes": 32,
+    "reference": "2014-01/2023-12",
+    "fire_matched_months": 114,
+    "fire_start": "2014-07",
+    "fire_end": "2023-12"
+  },
+  "source_sha256": {
+    "region_mensual.csv": "23e19db8d6e0aea2d3f4366ccf1be9bbe8b3dab33cc7b4c46fd07029e2cbaa63",
+    "comunas_mensual.csv": "ba1d284397f7f5d06fee223d611435a63ab01feb28aeac416d60cc08a02b583c",
+    "infraestructura_vial_referencia_2019.csv": "46a28f4f53efee45ee0b8eeda5f4ed961cabcd227faad42ebf17246e9bc39625",
+    "metadatos.json": "62c3b0bf6ffb408b039d0c98b273b279e854eb7dc7934f1ed22c2c4f5e4de242",
+    "conaf.csv": "6f23b4adc321a217256f859c3afc2f0c5ed6e505499e420c55e6b3f778e826d0",
+    "conaf_comuna.csv": "8d53d116b4268ef585052a62ba6730cdad199cb866babd35810f9a56906bfe2a"
+  },
+  "calendar_documentation": "https://www.conafprevencionincendios.cl/situacion-nacional-de-incendios-forestales/",
+  "conaf_original_download_reference": "No consta en los CSV locales; calendario documentado y totales conciliados, cifras sin autenticación externa adicional.",
+  "conaf_variable": "Cantidad de incendios registrados; no superficie quemada.",
+  "weather_months_without_fire": [
+    "2014-01",
+    "2014-02",
+    "2014-03",
+    "2014-04",
+    "2014-05",
+    "2014-06"
+  ],
+  "fire_months_excluded_after_2023": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06"
+  ],
+  "seasonal_totals_reconciled": [
+    {
+      "temporada": "2014-2015",
+      "regional_count": 1496.0,
+      "communal_count": 1496.0
+    },
+    {
+      "temporada": "2015-2016",
+      "regional_count": 1344.0,
+      "communal_count": 1344.0
+    },
+    {
+      "temporada": "2016-2017",
+      "regional_count": 753.0,
+      "communal_count": 753.0
+    },
+    {
+      "temporada": "2017-2018",
+      "regional_count": 969.0,
+      "communal_count": 969.0
+    },
+    {
+      "temporada": "2018-2019",
+      "regional_count": 1352.0,
+      "communal_count": 1352.0
+    },
+    {
+      "temporada": "2019-2020",
+      "regional_count": 1802.0,
+      "communal_count": 1802.0
+    },
+    {
+      "temporada": "2020-2021",
+      "regional_count": 1367.0,
+      "communal_count": 1367.0
+    },
+    {
+      "temporada": "2021-2022",
+      "regional_count": 1457.0,
+      "communal_count": 1457.0
+    },
+    {
+      "temporada": "2022-2023",
+      "regional_count": 1753.0,
+      "communal_count": 1753.0
+    },
+    {
+      "temporada": "2023-2024",
+      "regional_count": 1365.0,
+      "communal_count": 1365.0
+    }
+  ],
+  "runs_below_monthly_mean": [
+    {
+      "start": "2021-03",
+      "end": "2021-12",
+      "months": 10,
+      "also_warmer_months": 10,
+      "rain_anomaly_sum_mm": -492.4316,
+      "mean_soil_anomaly_kgm2": -1.7779599999999998
+    },
+    {
+      "start": "2019-08",
+      "end": "2020-01",
+      "months": 6,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -199.5407,
+      "mean_soil_anomaly_kgm2": -1.1235333333333337
+    },
+    {
+      "start": "2015-01",
+      "end": "2015-04",
+      "months": 4,
+      "also_warmer_months": 3,
+      "rain_anomaly_sum_mm": -96.3911,
+      "mean_soil_anomaly_kgm2": -1.8260499999999995
+    },
+    {
+      "start": "2022-11",
+      "end": "2023-02",
+      "months": 4,
+      "also_warmer_months": 4,
+      "rain_anomaly_sum_mm": -58.3838,
+      "mean_soil_anomaly_kgm2": -2.17505
+    },
+    {
+      "start": "2019-02",
+      "end": "2019-04",
+      "months": 3,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -77.8083,
+      "mean_soil_anomaly_kgm2": -2.1663999999999994
+    },
+    {
+      "start": "2020-03",
+      "end": "2020-05",
+      "months": 3,
+      "also_warmer_months": 3,
+      "rain_anomaly_sum_mm": -85.51129999999999,
+      "mean_soil_anomaly_kgm2": -2.3565666666666663
+    },
+    {
+      "start": "2020-09",
+      "end": "2020-11",
+      "months": 3,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -95.9104,
+      "mean_soil_anomaly_kgm2": -1.2047666666666679
+    },
+    {
+      "start": "2016-05",
+      "end": "2016-06",
+      "months": 2,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -203.1209,
+      "mean_soil_anomaly_kgm2": -2.3188499999999994
+    },
+    {
+      "start": "2016-08",
+      "end": "2016-09",
+      "months": 2,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -54.232699999999994,
+      "mean_soil_anomaly_kgm2": -1.6947500000000009
+    },
+    {
+      "start": "2018-07",
+      "end": "2018-08",
+      "months": 2,
+      "also_warmer_months": 0,
+      "rain_anomaly_sum_mm": -125.71280000000002,
+      "mean_soil_anomaly_kgm2": -0.4330000000000034
+    },
+    {
+      "start": "2023-04",
+      "end": "2023-05",
+      "months": 2,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -57.5958,
+      "mean_soil_anomaly_kgm2": -1.924999999999999
+    },
+    {
+      "start": "2016-03",
+      "end": "2016-03",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -22.481499999999997,
+      "mean_soil_anomaly_kgm2": -1.7566999999999986
+    },
+    {
+      "start": "2022-09",
+      "end": "2022-09",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -66.74879999999999,
+      "mean_soil_anomaly_kgm2": -0.9621000000000031
+    },
+    {
+      "start": "2023-10",
+      "end": "2023-10",
+      "months": 1,
+      "also_warmer_months": 0,
+      "rain_anomaly_sum_mm": -29.80659999999999,
+      "mean_soil_anomaly_kgm2": -0.8576000000000015
+    }
+  ],
+  "runs_below_monthly_median": [
+    {
+      "start": "2021-06",
+      "end": "2021-12",
+      "months": 7,
+      "also_warmer_months": 7,
+      "rain_anomaly_sum_mm": -386.53649999999993,
+      "mean_soil_anomaly_kgm2": -2.2560714285714276
+    },
+    {
+      "start": "2019-08",
+      "end": "2020-01",
+      "months": 6,
+      "also_warmer_months": 3,
+      "rain_anomaly_sum_mm": -134.68550000000002,
+      "mean_soil_anomaly_kgm2": -1.384833333333333
+    },
+    {
+      "start": "2015-01",
+      "end": "2015-04",
+      "months": 4,
+      "also_warmer_months": 3,
+      "rain_anomaly_sum_mm": -61.983,
+      "mean_soil_anomaly_kgm2": -1.6162500000000004
+    },
+    {
+      "start": "2022-11",
+      "end": "2023-02",
+      "months": 4,
+      "also_warmer_months": 4,
+      "rain_anomaly_sum_mm": -34.301,
+      "mean_soil_anomaly_kgm2": -2.2692499999999995
+    },
+    {
+      "start": "2019-02",
+      "end": "2019-04",
+      "months": 3,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -48.095,
+      "mean_soil_anomaly_kgm2": -1.7143333333333342
+    },
+    {
+      "start": "2020-03",
+      "end": "2020-05",
+      "months": 3,
+      "also_warmer_months": 3,
+      "rain_anomaly_sum_mm": -53.434500000000014,
+      "mean_soil_anomaly_kgm2": -1.8838333333333346
+    },
+    {
+      "start": "2016-05",
+      "end": "2016-06",
+      "months": 2,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -229.00400000000002,
+      "mean_soil_anomaly_kgm2": -2.1880000000000006
+    },
+    {
+      "start": "2020-10",
+      "end": "2020-11",
+      "months": 2,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -31.965,
+      "mean_soil_anomaly_kgm2": -1.8644999999999996
+    },
+    {
+      "start": "2023-04",
+      "end": "2023-05",
+      "months": 2,
+      "also_warmer_months": 2,
+      "rain_anomaly_sum_mm": -34.988000000000014,
+      "mean_soil_anomaly_kgm2": -1.4617500000000003
+    },
+    {
+      "start": "2016-03",
+      "end": "2016-03",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -13.012500000000003,
+      "mean_soil_anomaly_kgm2": -1.2650000000000006
+    },
+    {
+      "start": "2016-09",
+      "end": "2016-09",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -29.947000000000003,
+      "mean_soil_anomaly_kgm2": -1.6774999999999984
+    },
+    {
+      "start": "2018-08",
+      "end": "2018-08",
+      "months": 1,
+      "also_warmer_months": 0,
+      "rain_anomaly_sum_mm": -10.63900000000001,
+      "mean_soil_anomaly_kgm2": -1.4775000000000063
+    },
+    {
+      "start": "2021-03",
+      "end": "2021-03",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -27.158500000000004,
+      "mean_soil_anomaly_kgm2": -1.7710000000000008
+    },
+    {
+      "start": "2022-09",
+      "end": "2022-09",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -44.053000000000004,
+      "mean_soil_anomaly_kgm2": -0.7985000000000007
+    },
+    {
+      "start": "2023-07",
+      "end": "2023-07",
+      "months": 1,
+      "also_warmer_months": 1,
+      "rain_anomaly_sum_mm": -8.380500000000012,
+      "mean_soil_anomaly_kgm2": -0.8164999999999907
+    },
+    {
+      "start": "2023-10",
+      "end": "2023-10",
+      "months": 1,
+      "also_warmer_months": 0,
+      "rain_anomaly_sum_mm": -19.397499999999994,
+      "mean_soil_anomaly_kgm2": -1.2174999999999976
+    }
+  ],
+  "rain_to_soil_lags": [
+    {
+      "lag_months": 0,
+      "n_pairs": 120,
+      "spearman": 0.48703382179318017,
+      "omit_year_min": 0.45874417674126133,
+      "omit_year_max": 0.5336439071327178
+    },
+    {
+      "lag_months": 1,
+      "n_pairs": 119,
+      "spearman": 0.5298675402364337,
+      "omit_year_min": 0.4765448270650172,
+      "omit_year_max": 0.6038290047106832
+    },
+    {
+      "lag_months": 2,
+      "n_pairs": 118,
+      "spearman": 0.42456878448902363,
+      "omit_year_min": 0.3878160674277178,
+      "omit_year_max": 0.5026458977915289
+    },
+    {
+      "lag_months": 3,
+      "n_pairs": 117,
+      "spearman": 0.3915464041121552,
+      "omit_year_min": 0.34946091644204846,
+      "omit_year_max": 0.449887193173915
+    }
+  ],
+  "spatial_cases": {
+    "driest_regional_year": 2021,
+    "warmest_anomaly_month": "2022-11",
+    "regional_rain_difference_pct": -38.080900694771124,
+    "communes": [
+      {
+        "commune_id": "09104",
+        "commune_name": "Curarrehue",
+        "rain_difference_pct": -44.7756313459,
+        "temperature_anomaly_c": 3.7075,
+        "soil_year_mean_anomaly_kgm2": -1.916525
+      },
+      {
+        "commune_id": "09102",
+        "commune_name": "Carahue",
+        "rain_difference_pct": -44.0190028177,
+        "temperature_anomaly_c": 2.3244,
+        "soil_year_mean_anomaly_kgm2": -0.8936833333
+      },
+      {
+        "commune_id": "09116",
+        "commune_name": "Saavedra",
+        "rain_difference_pct": -42.3491704014,
+        "temperature_anomaly_c": 2.3523,
+        "soil_year_mean_anomaly_kgm2": null
+      },
+      {
+        "commune_id": "09110",
+        "commune_name": "Melipeuco",
+        "rain_difference_pct": -41.5974573962,
+        "temperature_anomaly_c": 3.9933,
+        "soil_year_mean_anomaly_kgm2": -1.7962833333
+      },
+      {
+        "commune_id": "09121",
+        "commune_name": "Cholchol",
+        "rain_difference_pct": -40.7032034513,
+        "temperature_anomaly_c": 2.6882,
+        "soil_year_mean_anomaly_kgm2": -1.2038833333
+      },
+      {
+        "commune_id": "09205",
+        "commune_name": "Lonquimay",
+        "rain_difference_pct": -40.5831938323,
+        "temperature_anomaly_c": 3.8467,
+        "soil_year_mean_anomaly_kgm2": -2.0397666667
+      },
+      {
+        "commune_id": "09207",
+        "commune_name": "Lumaco",
+        "rain_difference_pct": -40.3893584869,
+        "temperature_anomaly_c": 2.6288,
+        "soil_year_mean_anomaly_kgm2": -1.1834916667
+      },
+      {
+        "commune_id": "09106",
+        "commune_name": "Galvarino",
+        "rain_difference_pct": -40.104760799,
+        "temperature_anomaly_c": 3.1975,
+        "soil_year_mean_anomaly_kgm2": -1.2206666667
+      },
+      {
+        "commune_id": "09115",
+        "commune_name": "Pucón",
+        "rain_difference_pct": -39.9262059498,
+        "temperature_anomaly_c": 3.8986,
+        "soil_year_mean_anomaly_kgm2": -1.5265083333
+      },
+      {
+        "commune_id": "09101",
+        "commune_name": "Temuco",
+        "rain_difference_pct": -39.1606658348,
+        "temperature_anomaly_c": 3.6196,
+        "soil_year_mean_anomaly_kgm2": -1.1774083333
+      },
+      {
+        "commune_id": "09203",
+        "commune_name": "Curacautín",
+        "rain_difference_pct": -39.1015534226,
+        "temperature_anomaly_c": 4.0638,
+        "soil_year_mean_anomaly_kgm2": -1.26195
+      },
+      {
+        "commune_id": "09117",
+        "commune_name": "Teodoro Schmidt",
+        "rain_difference_pct": -38.8856365524,
+        "temperature_anomaly_c": 2.3246,
+        "soil_year_mean_anomaly_kgm2": -1.1286083333
+      },
+      {
+        "commune_id": "09113",
+        "commune_name": "Perquenco",
+        "rain_difference_pct": -38.6606584856,
+        "temperature_anomaly_c": 3.6296,
+        "soil_year_mean_anomaly_kgm2": -1.141425
+      },
+      {
+        "commune_id": "09111",
+        "commune_name": "Nueva Imperial",
+        "rain_difference_pct": -38.2609662834,
+        "temperature_anomaly_c": 2.4298,
+        "soil_year_mean_anomaly_kgm2": -1.023125
+      },
+      {
+        "commune_id": "09108",
+        "commune_name": "Lautaro",
+        "rain_difference_pct": -38.234459245,
+        "temperature_anomaly_c": 3.7898,
+        "soil_year_mean_anomaly_kgm2": -0.7984416667
+      },
+      {
+        "commune_id": "09103",
+        "commune_name": "Cunco",
+        "rain_difference_pct": -37.6821768151,
+        "temperature_anomaly_c": 3.9631,
+        "soil_year_mean_anomaly_kgm2": -1.1302083333
+      },
+      {
+        "commune_id": "09210",
+        "commune_name": "Traiguén",
+        "rain_difference_pct": -37.5089170394,
+        "temperature_anomaly_c": 3.6129,
+        "soil_year_mean_anomaly_kgm2": -1.3247916667
+      },
+      {
+        "commune_id": "09211",
+        "commune_name": "Victoria",
+        "rain_difference_pct": -37.3060108792,
+        "temperature_anomaly_c": 3.8325,
+        "soil_year_mean_anomaly_kgm2": -0.9816083333
+      },
+      {
+        "commune_id": "09119",
+        "commune_name": "Vilcún",
+        "rain_difference_pct": -37.0980727821,
+        "temperature_anomaly_c": 3.8974,
+        "soil_year_mean_anomaly_kgm2": -0.7516416667
+      },
+      {
+        "commune_id": "09118",
+        "commune_name": "Toltén",
+        "rain_difference_pct": -36.941422996,
+        "temperature_anomaly_c": 2.3752,
+        "soil_year_mean_anomaly_kgm2": -1.588
+      },
+      {
+        "commune_id": "09112",
+        "commune_name": "Padre Las Casas",
+        "rain_difference_pct": -36.8170080593,
+        "temperature_anomaly_c": 3.6285,
+        "soil_year_mean_anomaly_kgm2": -0.8210083333
+      },
+      {
+        "commune_id": "09120",
+        "commune_name": "Villarrica",
+        "rain_difference_pct": -36.6217034513,
+        "temperature_anomaly_c": 3.7829,
+        "soil_year_mean_anomaly_kgm2": -1.6350833333
+      },
+      {
+        "commune_id": "09204",
+        "commune_name": "Ercilla",
+        "rain_difference_pct": -35.6642794412,
+        "temperature_anomaly_c": 3.7705,
+        "soil_year_mean_anomaly_kgm2": -1.2847416667
+      },
+      {
+        "commune_id": "09105",
+        "commune_name": "Freire",
+        "rain_difference_pct": -35.3912704707,
+        "temperature_anomaly_c": 3.515,
+        "soil_year_mean_anomaly_kgm2": -0.989625
+      },
+      {
+        "commune_id": "09114",
+        "commune_name": "Pitrufquén",
+        "rain_difference_pct": -34.7297802837,
+        "temperature_anomaly_c": 3.2199,
+        "soil_year_mean_anomaly_kgm2": -1.7463083333
+      },
+      {
+        "commune_id": "09206",
+        "commune_name": "Los Sauces",
+        "rain_difference_pct": -34.6848464986,
+        "temperature_anomaly_c": 3.2675,
+        "soil_year_mean_anomaly_kgm2": -1.4826916667
+      },
+      {
+        "commune_id": "09202",
+        "commune_name": "Collipulli",
+        "rain_difference_pct": -34.6277775302,
+        "temperature_anomaly_c": 3.8921,
+        "soil_year_mean_anomaly_kgm2": -1.4279
+      },
+      {
+        "commune_id": "09209",
+        "commune_name": "Renaico",
+        "rain_difference_pct": -34.0892364905,
+        "temperature_anomaly_c": 3.6735,
+        "soil_year_mean_anomaly_kgm2": -1.53525
+      },
+      {
+        "commune_id": "09208",
+        "commune_name": "Purén",
+        "rain_difference_pct": -33.8809938654,
+        "temperature_anomaly_c": 2.7521,
+        "soil_year_mean_anomaly_kgm2": -1.368625
+      },
+      {
+        "commune_id": "09107",
+        "commune_name": "Gorbea",
+        "rain_difference_pct": -33.8011393473,
+        "temperature_anomaly_c": 3.4901,
+        "soil_year_mean_anomaly_kgm2": -1.7773416667
+      },
+      {
+        "commune_id": "09109",
+        "commune_name": "Loncoche",
+        "rain_difference_pct": -33.6707183948,
+        "temperature_anomaly_c": 3.5908,
+        "soil_year_mean_anomaly_kgm2": -1.984225
+      },
+      {
+        "commune_id": "09201",
+        "commune_name": "Angol",
+        "rain_difference_pct": -31.9648020591,
+        "temperature_anomaly_c": 3.3397,
+        "soil_year_mean_anomaly_kgm2": -1.63915
+      }
+    ]
+  },
+  "fire_associations": [
+    {
+      "variable": "temperature_2m_c",
+      "label": "Temperatura media",
+      "n_months": 114,
+      "anomaly_spearman": 0.35896407975770844,
+      "omit_year_min": 0.272641933015089,
+      "omit_year_max": 0.43820975039198995,
+      "within_month_rank_correlation": 0.22599717703150232
+    },
+    {
+      "variable": "precipitation_mm",
+      "label": "Precipitación mensual",
+      "n_months": 114,
+      "anomaly_spearman": -0.529157886603946,
+      "omit_year_min": -0.5554254889427632,
+      "omit_year_max": -0.5034524918933081,
+      "within_month_rank_correlation": -0.6307347863467607
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "label": "Humedad relativa",
+      "n_months": 114,
+      "anomaly_spearman": -0.539073976644873,
+      "omit_year_min": -0.6013493713500693,
+      "omit_year_max": -0.43792025402687024,
+      "within_month_rank_correlation": -0.5247397965954683
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "label": "Humedad del suelo 0–10 cm",
+      "n_months": 114,
+      "anomaly_spearman": -0.630404892556957,
+      "omit_year_min": -0.6963082015752954,
+      "omit_year_max": -0.5653682570683283,
+      "within_month_rank_correlation": -0.5193184179074242
+    },
+    {
+      "variable": "wind_speed_10m_ms",
+      "label": "Viento a 10 m",
+      "n_months": 114,
+      "anomaly_spearman": -0.008478094957377435,
+      "omit_year_min": -0.01646895840210272,
+      "omit_year_max": 0.03716616509330736,
+      "within_month_rank_correlation": 0.06576829639968824
+    },
+    {
+      "variable": "aod_550",
+      "label": "Aerosoles AOD 550 nm",
+      "n_months": 114,
+      "anomaly_spearman": 0.2927717483202949,
+      "omit_year_min": 0.20452829833083822,
+      "omit_year_max": 0.3899258352480956,
+      "within_month_rank_correlation": 0.11866192060825823
+    }
+  ],
+  "aod_case_studies": [
+    {
+      "month": "2020-01",
+      "aod_550": 0.162564,
+      "fire_count": 319,
+      "aod_anomaly": 0.08501133333333333,
+      "fire_anomaly": 14.333333333333314
+    },
+    {
+      "month": "2023-02",
+      "aod_550": 0.128102,
+      "fire_count": 459,
+      "aod_anomaly": 0.04605955555555555,
+      "fire_anomaly": 106.77777777777777
+    },
+    {
+      "month": "2017-03",
+      "aod_550": 0.108189,
+      "fire_count": 157,
+      "aod_anomaly": 0.02777466666666667,
+      "fire_anomaly": -146.1111111111111
+    },
+    {
+      "month": "2019-11",
+      "aod_550": 0.108083,
+      "fire_count": 159,
+      "aod_anomaly": 0.024830599999999994,
+      "fire_anomaly": 74.6
+    },
+    {
+      "month": "2015-11",
+      "aod_550": 0.101703,
+      "fire_count": 37,
+      "aod_anomaly": 0.018450599999999998,
+      "fire_anomaly": -47.400000000000006
+    }
+  ],
+  "methods": {
+    "anomaly": "Observed minus calendar-month mean; 120 environmental months or 114 jointly matched months as appropriate.",
+    "lag": "Rain at t-k versus soil at t. Paired dates excluded when either falls in the omitted year; baseline recomputed without that year.",
+    "omit_year_range": "Sensitivity only, not a confidence interval or statistical significance test.",
+    "within_month_rank": "Pearson correlation of percent ranks calculated separately within each calendar month.",
+    "spatial": "Commune own baseline; soil masked below 80% coverage. Counts of communes are not independent pixels nor area fractions."
+  },
+  "limitations": [
+    "Ten-year descriptive baseline, not a long-term climate normal.",
+    "Temporal autocorrelation and shared source grids; no causal interpretation.",
+    "Cases selected after examining these same data.",
+    "Monthly environmental means cannot resolve daily fire weather.",
+    "Fire counts do not measure burned area or severity; AOD does not identify smoke origin."
+  ],
+  "fire_event_contrasts": {
+    "observation_unit": "One calendar month, entire Araucania region; not individual fire day/location.",
+    "with_recorded_fire": 100,
+    "without_recorded_fire": 14,
+    "presence_by_calendar_month": [
+      {
+        "month": 1,
+        "observed_months": 9,
+        "with_recorded_fire": 9,
+        "fire_count_min": 222,
+        "fire_count_max": 489,
+        "without_recorded_fire": 0,
+        "calendar_month": "Ene"
+      },
+      {
+        "month": 2,
+        "observed_months": 9,
+        "with_recorded_fire": 9,
+        "fire_count_min": 150,
+        "fire_count_max": 459,
+        "without_recorded_fire": 0,
+        "calendar_month": "Feb"
+      },
+      {
+        "month": 3,
+        "observed_months": 9,
+        "with_recorded_fire": 9,
+        "fire_count_min": 148,
+        "fire_count_max": 473,
+        "without_recorded_fire": 0,
+        "calendar_month": "Mar"
+      },
+      {
+        "month": 4,
+        "observed_months": 9,
+        "with_recorded_fire": 9,
+        "fire_count_min": 23,
+        "fire_count_max": 218,
+        "without_recorded_fire": 0,
+        "calendar_month": "Abr"
+      },
+      {
+        "month": 5,
+        "observed_months": 9,
+        "with_recorded_fire": 8,
+        "fire_count_min": 0,
+        "fire_count_max": 13,
+        "without_recorded_fire": 1,
+        "calendar_month": "May"
+      },
+      {
+        "month": 6,
+        "observed_months": 9,
+        "with_recorded_fire": 4,
+        "fire_count_min": 0,
+        "fire_count_max": 2,
+        "without_recorded_fire": 5,
+        "calendar_month": "Jun"
+      },
+      {
+        "month": 7,
+        "observed_months": 10,
+        "with_recorded_fire": 5,
+        "fire_count_min": 0,
+        "fire_count_max": 2,
+        "without_recorded_fire": 5,
+        "calendar_month": "Jul"
+      },
+      {
+        "month": 8,
+        "observed_months": 10,
+        "with_recorded_fire": 8,
+        "fire_count_min": 0,
+        "fire_count_max": 8,
+        "without_recorded_fire": 2,
+        "calendar_month": "Ago"
+      },
+      {
+        "month": 9,
+        "observed_months": 10,
+        "with_recorded_fire": 9,
+        "fire_count_min": 0,
+        "fire_count_max": 45,
+        "without_recorded_fire": 1,
+        "calendar_month": "Sep"
+      },
+      {
+        "month": 10,
+        "observed_months": 10,
+        "with_recorded_fire": 10,
+        "fire_count_min": 2,
+        "fire_count_max": 76,
+        "without_recorded_fire": 0,
+        "calendar_month": "Oct"
+      },
+      {
+        "month": 11,
+        "observed_months": 10,
+        "with_recorded_fire": 10,
+        "fire_count_min": 37,
+        "fire_count_max": 161,
+        "without_recorded_fire": 0,
+        "calendar_month": "Nov"
+      },
+      {
+        "month": 12,
+        "observed_months": 10,
+        "with_recorded_fire": 10,
+        "fire_count_min": 81,
+        "fire_count_max": 286,
+        "without_recorded_fire": 0,
+        "calendar_month": "Dic"
+      }
+    ],
+    "presence_comparable_calendar_months": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "presence_supported_calendar_months": [
+      6,
+      7,
+      8
+    ],
+    "presence_contrast": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.20470333333333351,
+        "standardized_difference": -0.3486073586928246
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -59.51782611111112,
+        "standardized_difference": -0.8810293597429955
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -3.2231799999999966,
+        "standardized_difference": -1.0410929708893844
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.9686833333333347,
+        "standardized_difference": -0.644962539742685
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.03318666666666674,
+        "standardized_difference": -0.051778850825403636
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": 0.00117013333333333,
+        "standardized_difference": 0.044793196468971175
+      }
+    ],
+    "presence_supported_contrast": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -0.36045000000000016,
+        "standardized_difference": -0.6011177735343077
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -65.61556666666668,
+        "standardized_difference": -0.8125375350593737
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -1.792799999999995,
+        "standardized_difference": -0.7119497116108561
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -0.5868333333333382,
+        "standardized_difference": -0.27783182715013693
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -0.06553333333333337,
+        "standardized_difference": -0.2681105243094727
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 3,
+        "n_positive": 17,
+        "n_reference": 12,
+        "mean_within_month_difference": -0.002935083333333336,
+        "standardized_difference": -0.45498566860678036
+      }
+    ],
+    "all_14_variable_presence_contrast": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.20470333333333351,
+        "standardized_difference": -0.3486073586928246
+      },
+      {
+        "variable": "dewpoint_2m_c",
+        "label": "Punto de rocío a 2 m",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.8804877777777775,
+        "standardized_difference": -1.1758698090474797
+      },
+      {
+        "variable": "specific_humidity_2m_kgkg",
+        "label": "Humedad específica a 2 m",
+        "unit": "kg/kg",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.00031366527777777764,
+        "standardized_difference": -1.1507809749115048
+      },
+      {
+        "variable": "wind_u_10m_ms",
+        "label": "Componente U a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.2495111111111111,
+        "standardized_difference": -0.585741674681803
+      },
+      {
+        "variable": "wind_v_10m_ms",
+        "label": "Componente V a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": 0.4180266666666667,
+        "standardized_difference": 0.7889066833185996
+      },
+      {
+        "variable": "wind_speed_lowest_model_ms",
+        "label": "Viento del nivel inferior del modelo",
+        "unit": "m/s",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.04938999999999982,
+        "standardized_difference": 0.0010549515091411664
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.9686833333333347,
+        "standardized_difference": -0.644962539742685
+      },
+      {
+        "variable": "soil_temperature_0_10cm_c",
+        "label": "Temperatura del suelo 0–10 cm",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.36189388888888896,
+        "standardized_difference": -0.5624425219599195
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": 0.00117013333333333,
+        "standardized_difference": 0.044793196468971175
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -59.51782611111112,
+        "standardized_difference": -0.8810293597429955
+      },
+      {
+        "variable": "temperature_monthly_max_c",
+        "label": "Mayor extremo térmico de los píxeles",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": 1.7408388888888886,
+        "standardized_difference": 0.5576292673715026
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -3.2231799999999966,
+        "standardized_difference": -1.0410929708893844
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": -0.03318666666666674,
+        "standardized_difference": -0.051778850825403636
+      },
+      {
+        "variable": "temperature_monthly_peak_area_mean_c",
+        "label": "Media espacial de extremos térmicos de píxel",
+        "unit": "°C",
+        "calendar_months_compared": 5,
+        "n_positive": 34,
+        "n_reference": 14,
+        "mean_within_month_difference": 1.4684494444444436,
+        "standardized_difference": 0.5961757651483159
+      }
+    ],
+    "all_14_variable_activity_contrast": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.783993197278913,
+        "standardized_difference": 0.6913241834780022
+      },
+      {
+        "variable": "dewpoint_2m_c",
+        "label": "Punto de rocío a 2 m",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.4369625850340139,
+        "standardized_difference": -0.2799311607279772
+      },
+      {
+        "variable": "specific_humidity_2m_kgkg",
+        "label": "Humedad específica a 2 m",
+        "unit": "kg/kg",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.00019257554421768693,
+        "standardized_difference": -0.2740249025509994
+      },
+      {
+        "variable": "wind_u_10m_ms",
+        "label": "Componente U a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.03072448979591839,
+        "standardized_difference": 0.1171880972703258
+      },
+      {
+        "variable": "wind_v_10m_ms",
+        "label": "Componente V a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.3714795918367348,
+        "standardized_difference": 1.0345654876746664
+      },
+      {
+        "variable": "wind_speed_lowest_model_ms",
+        "label": "Viento del nivel inferior del modelo",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.05649659863945532,
+        "standardized_difference": -0.11407706336477243
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -2.6213197278911573,
+        "standardized_difference": -1.3372643799120938
+      },
+      {
+        "variable": "soil_temperature_0_10cm_c",
+        "label": "Temperatura del suelo 0–10 cm",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.5113061224489791,
+        "standardized_difference": 0.5479115853955491
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.008868891156462583,
+        "standardized_difference": 0.4704388477422624
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -34.47371088435374,
+        "standardized_difference": -1.117215073941504
+      },
+      {
+        "variable": "temperature_monthly_max_c",
+        "label": "Mayor extremo térmico de los píxeles",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 1.152380952380953,
+        "standardized_difference": 0.40316318134784473
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -4.212363945578228,
+        "standardized_difference": -0.7813525854698329
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.013142857142857154,
+        "standardized_difference": -0.050637390406043155
+      },
+      {
+        "variable": "temperature_monthly_peak_area_mean_c",
+        "label": "Media espacial de extremos térmicos de píxel",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 1.0379149659863955,
+        "standardized_difference": 0.4642460491034907
+      }
+    ],
+    "activity_calendar_months": [
+      1,
+      2,
+      3,
+      4,
+      10,
+      11,
+      12
+    ],
+    "activity_definition": "Count >= 75th percentile within calendar month; only months with fire recorded in every observed year.",
+    "activity_now_contrast": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.783993197278913,
+        "standardized_difference": 0.6913241834780022,
+        "lag_months": 0,
+        "omit_year_min": 0.6219761904761906,
+        "omit_year_max": 1.0627380952380956
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -34.47371088435374,
+        "standardized_difference": -1.117215073941504,
+        "lag_months": 0,
+        "omit_year_min": -37.28926190476191,
+        "omit_year_max": -25.193857142857137
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -4.212363945578228,
+        "standardized_difference": -0.7813525854698329,
+        "lag_months": 0,
+        "omit_year_min": -6.265452380952381,
+        "omit_year_max": -3.051952380952379
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -2.6213197278911573,
+        "standardized_difference": -1.3372643799120938,
+        "lag_months": 0,
+        "omit_year_min": -2.8054523809523793,
+        "omit_year_max": -2.129238095238095
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.013142857142857154,
+        "standardized_difference": -0.050637390406043155,
+        "lag_months": 0,
+        "omit_year_min": -0.0318571428571429,
+        "omit_year_max": 0.007142857142857054
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.008868891156462583,
+        "standardized_difference": 0.4704388477422624,
+        "lag_months": 0,
+        "omit_year_min": 0.0034604761904761944,
+        "omit_year_max": 0.01304883333333333
+      }
+    ],
+    "activity_antecedent_contrasts": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.783993197278913,
+        "standardized_difference": 0.6913241834780022,
+        "lag_months": 0
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -34.47371088435374,
+        "standardized_difference": -1.117215073941504,
+        "lag_months": 0
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -4.212363945578228,
+        "standardized_difference": -0.7813525854698329,
+        "lag_months": 0
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -2.6213197278911573,
+        "standardized_difference": -1.3372643799120938,
+        "lag_months": 0
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.013142857142857154,
+        "standardized_difference": -0.050637390406043155,
+        "lag_months": 0
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.008868891156462583,
+        "standardized_difference": 0.4704388477422624,
+        "lag_months": 0
+      },
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.33068707482993226,
+        "standardized_difference": 0.18476957022388965,
+        "lag_months": 1
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -23.275139455782316,
+        "standardized_difference": -0.8169135477932133,
+        "lag_months": 1
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -1.7515884353741475,
+        "standardized_difference": -0.3214786121079584,
+        "lag_months": 1
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -1.457809523809522,
+        "standardized_difference": -0.7422591008499662,
+        "lag_months": 1
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.05875510204081629,
+        "standardized_difference": -0.25407935267446996,
+        "lag_months": 1
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.0007554149659863939,
+        "standardized_difference": 0.0013104580606170574,
+        "lag_months": 1
+      },
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.21726870748299426,
+        "standardized_difference": 0.2295486035409003,
+        "lag_months": 2
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -25.92372448979592,
+        "standardized_difference": -0.6650827493443467,
+        "lag_months": 2
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -1.5045646258503425,
+        "standardized_difference": -0.3555271829618783,
+        "lag_months": 2
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": -0.4559047619047631,
+        "standardized_difference": -0.3273565087658165,
+        "lag_months": 2
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.0053027210884352294,
+        "standardized_difference": 0.0711025319447381,
+        "lag_months": 2
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "calendar_months_compared": 7,
+        "n_positive": 21,
+        "n_reference": 45,
+        "mean_within_month_difference": 0.006190265306122441,
+        "standardized_difference": 0.2853387853781489,
+        "lag_months": 2
+      }
+    ],
+    "contrast_method": "Difference of means within calendar month, then equal-weight average across eligible calendar months. Standardized difference divides each month difference by its own sample SD before averaging.",
+    "activity_omit_year_method": "Recalculate count thresholds and groups after excluding each calendar year. Descriptive sensitivity, not a confidence interval.",
+    "top_fire_month_cases": [
+      {
+        "month": "2023-01",
+        "fire_count": 489,
+        "temperature_2m_c": 17.08,
+        "precipitation_mm": 8.651,
+        "soil_moisture_0_10cm_kgm2": 15.844,
+        "temperature_2m_c_anomaly": 1.0790000000000006,
+        "precipitation_mm_anomaly": -16.293666666666667,
+        "soil_moisture_0_10cm_kgm2_anomaly": -2.405666666666667
+      },
+      {
+        "month": "2016-03",
+        "fire_count": 473,
+        "temperature_2m_c": 14.795,
+        "precipitation_mm": 22.756,
+        "soil_moisture_0_10cm_kgm2": 14.742,
+        "temperature_2m_c_anomaly": 0.5283333333333324,
+        "precipitation_mm_anomaly": -17.016111111111115,
+        "soil_moisture_0_10cm_kgm2_anomaly": -1.6633333333333304
+      },
+      {
+        "month": "2023-02",
+        "fire_count": 459,
+        "temperature_2m_c": 17.467,
+        "precipitation_mm": 5.199,
+        "soil_moisture_0_10cm_kgm2": 13.234,
+        "temperature_2m_c_anomaly": 0.899222222222221,
+        "precipitation_mm_anomaly": -13.830222222222224,
+        "soil_moisture_0_10cm_kgm2_anomaly": -2.4436666666666653
+      },
+      {
+        "month": "2015-02",
+        "fire_count": 447,
+        "temperature_2m_c": 15.984,
+        "precipitation_mm": 5.816,
+        "soil_moisture_0_10cm_kgm2": 14.629,
+        "temperature_2m_c_anomaly": -0.5837777777777777,
+        "precipitation_mm_anomaly": -13.213222222222225,
+        "soil_moisture_0_10cm_kgm2_anomaly": -1.0486666666666657
+      },
+      {
+        "month": "2016-02",
+        "fire_count": 444,
+        "temperature_2m_c": 15.213,
+        "precipitation_mm": 9.024,
+        "soil_moisture_0_10cm_kgm2": 16.405,
+        "temperature_2m_c_anomaly": -1.3547777777777785,
+        "precipitation_mm_anomaly": -10.005222222222224,
+        "soil_moisture_0_10cm_kgm2_anomaly": 0.7273333333333358
+      },
+      {
+        "month": "2020-03",
+        "fire_count": 431,
+        "temperature_2m_c": 15.48,
+        "precipitation_mm": 20.805,
+        "soil_moisture_0_10cm_kgm2": 14.751,
+        "temperature_2m_c_anomaly": 1.213333333333333,
+        "precipitation_mm_anomaly": -18.967111111111116,
+        "soil_moisture_0_10cm_kgm2_anomaly": -1.6543333333333319
+      }
+    ],
+    "limitations": [
+      "Presence comparison is supported only in May-September, and without singleton groups only June-August.",
+      "Fire occurrence and high monthly activity answer different questions and compare different month populations.",
+      "Monthly regional variables cannot locate or describe ignition-day weather.",
+      "No fire causal attribution; shared grids, temporal dependence, potential reporting differences and omitted human/land-use factors."
+    ]
+  },
+  "event_context_output": {
+    "file": "incendios_contexto_mensual.csv",
+    "rows": 114,
+    "sha256": "3ba93d752ff703c2aecc95fa1f669f718e18606ce1f27254d033966791b45c59",
+    "concurrent_anomaly_reference": "Calendar-month means over jointly observed months 2014-07/2023-12.",
+    "previous_month_anomaly_reference": "Calendar-month means over full weather period 2014-01/2023-12, shifted by one month.",
+    "units": {
+      "temperature_2m_c": "°C",
+      "dewpoint_2m_c": "°C",
+      "specific_humidity_2m_kgkg": "kg/kg",
+      "wind_u_10m_ms": "m/s",
+      "wind_v_10m_ms": "m/s",
+      "wind_speed_lowest_model_ms": "m/s",
+      "soil_moisture_0_10cm_kgm2": "kg/m²",
+      "soil_temperature_0_10cm_c": "°C",
+      "aod_550": "adimensional",
+      "precipitation_mm": "mm/mes",
+      "temperature_monthly_max_c": "°C",
+      "relative_humidity_2m_pct": "%",
+      "wind_speed_10m_ms": "m/s",
+      "temperature_monthly_peak_area_mean_c": "°C"
+    }
+  },
+  "inferential_followup": {
+    "software": {
+      "statsmodels": "0.15.0",
+      "scipy": "1.18.1"
+    },
+    "cohort_audit": [
+      {
+        "group": "Meses ambientales disponibles",
+        "months": 120,
+        "explanation": "2014-01 a 2023-12"
+      },
+      {
+        "group": "NASA sin coincidencia CONAF",
+        "months": 6,
+        "explanation": "2014-01, 2014-02, 2014-03, 2014-04, 2014-05, 2014-06"
+      },
+      {
+        "group": "CONAF fuera del período NASA",
+        "months": 6,
+        "explanation": "2024-01, 2024-02, 2024-03, 2024-04, 2024-05, 2024-06"
+      },
+      {
+        "group": "Coincidencia: muestra de regresión",
+        "months": 114,
+        "explanation": "2014-07 a 2023-12; incluye ceros"
+      },
+      {
+        "group": "Con incendios registrados",
+        "months": 100,
+        "explanation": "100 = 66 + 34"
+      },
+      {
+        "group": "Cero incendios registrados",
+        "months": 14,
+        "explanation": "14; todos entre mayo y septiembre"
+      },
+      {
+        "group": "Dentro del contraste de actividad",
+        "months": 66,
+        "explanation": "66 = 21 altos + 45 restantes; enero-abril y octubre-diciembre"
+      },
+      {
+        "group": "Con incendios, fuera de ese contraste",
+        "months": 34,
+        "explanation": "34; mayo-septiembre"
+      }
+    ],
+    "primary_model": "NB2 count, log days offset, month fixed effects, centered linear time trend, four standardized within-month weather anomalies.",
+    "formula": "log(mu_t) = log(days_t) + calendar_month_FE + linear_time + heat + rain_deficit + rh_deficit + soil_deficit",
+    "reference_months": "2014-07/2023-12, 114 consecutive months including 14 zeros; no activity-based exclusion.",
+    "coefficient_scale": [
+      {
+        "term": "heat",
+        "variable": "temperature_2m_c",
+        "label": "Temperatura más alta",
+        "one_sd_original_units": 0.8767038125423282,
+        "unit": "°C",
+        "direction": 1
+      },
+      {
+        "term": "rain_deficit",
+        "variable": "precipitation_mm",
+        "label": "Déficit de lluvia",
+        "one_sd_original_units": 49.59582851544603,
+        "unit": "mm/mes",
+        "direction": -1
+      },
+      {
+        "term": "rh_deficit",
+        "variable": "relative_humidity_2m_pct",
+        "label": "Déficit de humedad relativa",
+        "one_sd_original_units": 4.505089197145597,
+        "unit": "puntos porcentuales",
+        "direction": -1
+      },
+      {
+        "term": "soil_deficit",
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Déficit de humedad del suelo",
+        "one_sd_original_units": 1.7547979607319992,
+        "unit": "kg/m²",
+        "direction": -1
+      }
+    ],
+    "diagnostics": {
+      "n_months": 114,
+      "zero_count_months": 14,
+      "mean_parameters": 17,
+      "estimated_parameters_including_alpha": 18,
+      "converged": true,
+      "alpha_estimated": 0.09407841769731827,
+      "conditional_poisson_Pearson_chi2_per_df": 7.852203250871199,
+      "NB_Pearson_sum_squares_per_mean_residual_df": 1.3976869366257032,
+      "AIC_calendar_trend_only": 972.7324531185844,
+      "AIC_calendar_trend_four_weather_terms": 896.2958852260779,
+      "residual_autocorrelation": {
+        "1": 0.21660361454174087,
+        "2": -0.011413437332266472,
+        "3": 0.026243932599442427,
+        "4": 0.00010890036431815453,
+        "5": -0.04030797829309746,
+        "6": -0.10741508210730516,
+        "7": 0.05356192543452423,
+        "8": -0.09947257919888276,
+        "9": -0.006588336409821769,
+        "10": 0.09447861986253882,
+        "11": 0.04748295445503937,
+        "12": 0.20175426580137734
+      },
+      "VIF": [
+        {
+          "term": "heat",
+          "label": "Temperatura más alta",
+          "VIF_after_month_and_trend_controls": 2.038326623137801
+        },
+        {
+          "term": "rain_deficit",
+          "label": "Déficit de lluvia",
+          "VIF_after_month_and_trend_controls": 1.418446087547575
+        },
+        {
+          "term": "rh_deficit",
+          "label": "Déficit de humedad relativa",
+          "VIF_after_month_and_trend_controls": 3.6286218379465693
+        },
+        {
+          "term": "soil_deficit",
+          "label": "Déficit de humedad del suelo",
+          "VIF_after_month_and_trend_controls": 1.9419394487094959
+        }
+      ]
+    },
+    "primary_HAC": {
+      "kernel": "Bartlett",
+      "maxlags": 4,
+      "use_correction": true,
+      "asymptotic_normal": true
+    },
+    "coefficients": [
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.05195124124106777,
+        "HAC_standard_error": 0.03791032807285047,
+        "rate_ratio": 0.9493751560687488,
+        "CI95_low": 0.8813908402464335,
+        "CI95_high": 1.0226033058257757,
+        "p_asymptotic": 0.1705708973223855,
+        "p_Holm_four_terms": 0.20773397811936561,
+        "one_sd_original_units": 0.8767038125423282,
+        "unit": "°C"
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5461773969857562,
+        "HAC_standard_error": 0.07538692498527891,
+        "rate_ratio": 1.7266401269377052,
+        "CI95_low": 1.4894720660868672,
+        "CI95_high": 2.0015723663645963,
+        "p_asymptotic": 4.3247622038238205e-13,
+        "p_Holm_four_terms": 1.7299048815295282e-12,
+        "one_sd_original_units": 49.59582851544603,
+        "unit": "mm/mes"
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.11316835388002215,
+        "HAC_standard_error": 0.06958259888234093,
+        "rate_ratio": 0.8930003073935279,
+        "CI95_low": 0.7791530818952791,
+        "CI95_high": 1.0234825062427402,
+        "p_asymptotic": 0.10386698905968281,
+        "p_Holm_four_terms": 0.20773397811936561,
+        "one_sd_original_units": 4.505089197145597,
+        "unit": "puntos porcentuales"
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.17891774931376045,
+        "HAC_standard_error": 0.05452229181957513,
+        "rate_ratio": 1.1959223746864531,
+        "CI95_low": 1.0747155490094717,
+        "CI95_high": 1.3307989519588501,
+        "p_asymptotic": 0.0010323739591569442,
+        "p_Holm_four_terms": 0.0030971218774708325,
+        "one_sd_original_units": 1.7547979607319992,
+        "unit": "kg/m²"
+      }
+    ],
+    "all_fitted_parameters": {
+      "const": 2.2927339643286135,
+      "month_2": 0.21521739392386366,
+      "month_3": -0.020087119852291686,
+      "month_4": -1.3586864369069804,
+      "month_5": -4.3989405615967145,
+      "month_6": -6.541797732307321,
+      "month_7": -6.686633628405321,
+      "month_8": -5.169039532228133,
+      "month_9": -3.257824554902244,
+      "month_10": -2.5515476504106456,
+      "month_11": -1.384829356319151,
+      "month_12": -0.6641159489576146,
+      "time_years": 0.10016725893309328,
+      "heat": -0.05195124124106777,
+      "rain_deficit": 0.5461773969857562,
+      "rh_deficit": -0.11316835388002215,
+      "soil_deficit": 0.17891774931376045,
+      "alpha": 0.09407841769731827
+    },
+    "coefficient_covariance_HAC4": [
+      [
+        0.006896170861355502,
+        -0.0034815499570370737,
+        -0.005470339767956254,
+        -0.010606341712260136,
+        -0.008353469100571989,
+        -0.00700760131499165,
+        -0.008210855020382633,
+        -0.008304996906881709,
+        -0.008748689373377704,
+        -0.007543196204312348,
+        -0.007635920322916229,
+        -0.0059596223684616634,
+        -0.00038974444649947734,
+        -0.0008783474224344539,
+        0.0017672250613210074,
+        0.0015240824783096791,
+        -0.0010051434020575613,
+        0.0007859540763585754
+      ],
+      [
+        -0.003481549957037082,
+        0.006756289037620255,
+        0.007481520415756664,
+        0.0033576225425371677,
+        0.0014224731277843229,
+        -0.0014081944055159311,
+        0.002825269524195892,
+        0.0033179757796399723,
+        0.004026672525318375,
+        0.001966425486282579,
+        0.0029807620659261587,
+        0.003669326511043342,
+        0.00048677172315514096,
+        -2.410662619443586e-05,
+        -0.00035032691537414197,
+        -0.0005799636807923807,
+        0.0006855634239268913,
+        -0.00012887524455268643
+      ],
+      [
+        -0.005470339767956248,
+        0.007481520415756651,
+        0.02393830141373851,
+        0.004808377589534101,
+        -0.006402612305477896,
+        -0.005471262572102325,
+        0.00668021253970777,
+        0.0053364107170722035,
+        0.006210364120931204,
+        0.00445277276551497,
+        0.005251754601675578,
+        0.004685380250026359,
+        0.001414662156917827,
+        -0.0008282621574029581,
+        -0.0013586756613486394,
+        -0.0024124488983875373,
+        0.001304684616524647,
+        -0.00017491461857714307
+      ],
+      [
+        -0.01060634171226015,
+        0.0033576225425371703,
+        0.004808377589534112,
+        0.02947331963771276,
+        0.0189186807595223,
+        0.025717811938196913,
+        0.020021956688356633,
+        0.01616463439826753,
+        0.014527911579847785,
+        0.012381541860908344,
+        0.011217694157893482,
+        0.009091823911148112,
+        0.00018068545139004978,
+        0.0021416775174377023,
+        -0.004854067912196565,
+        -0.003281840843495253,
+        0.003619530168244375,
+        -0.0019532518212261873
+      ],
+      [
+        -0.00835346910057198,
+        0.0014224731277843062,
+        -0.0064026123054778915,
+        0.01891868075952228,
+        0.058210217729659515,
+        0.014056867931037496,
+        0.005684281782672312,
+        0.018013347002255382,
+        0.01196861616988865,
+        0.011999232625464706,
+        0.009125875743689331,
+        0.0076224570531918685,
+        -0.0006601586598197827,
+        0.0027010765766563418,
+        -0.003836951658239904,
+        -0.0009637009976701228,
+        1.9494378010239586e-05,
+        -0.0015383984721695641
+      ],
+      [
+        -0.007007601314991634,
+        -0.0014081944055159368,
+        -0.005471262572102309,
+        0.025717811938196902,
+        0.014056867931037496,
+        0.48764538660681966,
+        0.1766300249282045,
+        0.011398768448160559,
+        0.05257395554588785,
+        0.015040214547061413,
+        0.005816291264746458,
+        0.0071357133585698675,
+        0.003668184119756685,
+        0.004827971351127324,
+        -0.03161267492015583,
+        -0.014162017065810991,
+        0.01882889795107357,
+        1.6942872064587292e-05
+      ],
+      [
+        -0.008210855020382624,
+        0.0028252695241958725,
+        0.006680212539707765,
+        0.02002195668835661,
+        0.005684281782672302,
+        0.1766300249282046,
+        0.11408125938378248,
+        -0.003888613959993776,
+        0.040497984519205506,
+        0.01623862248281161,
+        0.01057641109962593,
+        0.00839248911355272,
+        0.0017266630278455198,
+        0.0018988825223481478,
+        -0.01812427890359131,
+        -0.007395754934200611,
+        0.010511265114583718,
+        -0.00039664554176770025
+      ],
+      [
+        -0.008304996906881702,
+        0.0033179757796399584,
+        0.005336410717072201,
+        0.016164634398267513,
+        0.01801334700225538,
+        0.011398768448160559,
+        -0.0038886139599937754,
+        0.07175363458091173,
+        0.005240473033932136,
+        0.013997513726110751,
+        0.005082213422729149,
+        0.008610206772076495,
+        -0.0005749252468490426,
+        0.0017920570244121766,
+        -0.0033739573032026933,
+        -0.0012687162218006538,
+        0.0019329591069227531,
+        -0.002673198438520066
+      ],
+      [
+        -0.008748689373377708,
+        0.004026672525318361,
+        0.006210364120931205,
+        0.014527911579847789,
+        0.011968616169888655,
+        0.05257395554588787,
+        0.04049798451920553,
+        0.005240473033932153,
+        0.05683534776941883,
+        0.02679106489218483,
+        0.013322256838919258,
+        0.004687576022796723,
+        -0.00021201723851342076,
+        0.00010059418093797499,
+        -0.0060924331122805065,
+        -0.0023700673759195962,
+        0.002808823285312847,
+        -0.001676489699796304
+      ],
+      [
+        -0.007543196204312342,
+        0.001966425486282569,
+        0.00445277276551497,
+        0.012381541860908327,
+        0.011999232625464719,
+        0.01504021454706142,
+        0.016238622482811625,
+        0.01399751372611076,
+        0.026791064892184822,
+        0.03093836076181599,
+        0.009605991212225239,
+        0.0038672829950507004,
+        -0.0014797288821997892,
+        0.00042529987252706305,
+        -0.00344660073273805,
+        0.0008208774448156284,
+        0.0004669612291333213,
+        -0.0026570837797723393
+      ],
+      [
+        -0.007635920322916241,
+        0.0029807620659261565,
+        0.005251754601675593,
+        0.011217694157893475,
+        0.009125875743689348,
+        0.005816291264746476,
+        0.010576411099625942,
+        0.005082213422729161,
+        0.013322256838919274,
+        0.009605991212225254,
+        0.01777921505668645,
+        0.007788856476293721,
+        -9.323853560488433e-05,
+        -4.436762864803273e-06,
+        -0.0014141230699491075,
+        -0.00018342304813472607,
+        -0.0005068887826149535,
+        -0.0008813475863918994
+      ],
+      [
+        -0.0059596223684616825,
+        0.0036693265110433484,
+        0.004685380250026376,
+        0.009091823911148116,
+        0.007622457053191887,
+        0.007135713358569891,
+        0.008392489113552745,
+        0.008610206772076521,
+        0.0046875760227967495,
+        0.0038672829950507186,
+        0.007788856476293728,
+        0.010524227955832804,
+        0.00017744330072603875,
+        0.0008234636805850535,
+        -0.0023718199574266777,
+        -0.0009080106887198038,
+        0.00048226179650830646,
+        -0.0013270886556334379
+      ],
+      [
+        -0.0003897444464994771,
+        0.0004867717231551408,
+        0.0014146621569178282,
+        0.00018068545139004926,
+        -0.0006601586598197838,
+        0.003668184119756685,
+        0.0017266630278455202,
+        -0.0005749252468490437,
+        -0.00021201723851342098,
+        -0.0014797288821997894,
+        -9.32385356048855e-05,
+        0.0001774433007260398,
+        0.000784605585806493,
+        0.000319695693212151,
+        0.00016876972752893497,
+        -0.0015183722988126062,
+        0.0005333324461218788,
+        0.0004004806274247376
+      ],
+      [
+        -0.0008783474224344538,
+        -2.4106626194436015e-05,
+        -0.0008282621574029585,
+        0.0021416775174377014,
+        0.0027010765766563426,
+        0.004827971351127323,
+        0.0018988825223481473,
+        0.0017920570244121777,
+        0.00010059418093797635,
+        0.00042529987252706456,
+        -4.436762864803371e-06,
+        0.0008234636805850556,
+        0.000319695693212151,
+        0.0014371929745911542,
+        -0.0003549628770902871,
+        -0.0016998054645333605,
+        0.0006445689738024172,
+        -0.00016192238182243874
+      ],
+      [
+        0.0017672250613210065,
+        -0.00035032691537414246,
+        -0.0013586756613486422,
+        -0.004854067912196566,
+        -0.003836951658239908,
+        -0.031612674920155834,
+        -0.018124278903591317,
+        -0.0033739573032026946,
+        -0.006092433112280506,
+        -0.0034466007327380514,
+        -0.0014141230699491073,
+        -0.0023718199574266764,
+        0.00016876972752893495,
+        -0.0003549628770902869,
+        0.005683188458736069,
+        0.0003898315321785104,
+        -0.0021931932919993465,
+        0.0006458551955848262
+      ],
+      [
+        0.0015240824783096785,
+        -0.0005799636807923801,
+        -0.002412448898387539,
+        -0.0032818408434952514,
+        -0.00096370099767012,
+        -0.014162017065810991,
+        -0.00739575493420061,
+        -0.0012687162218006525,
+        -0.0023700673759195962,
+        0.0008208774448156302,
+        -0.00018342304813472374,
+        -0.0009080106887198053,
+        -0.0015183722988126066,
+        -0.0016998054645333614,
+        0.000389831532178511,
+        0.004841738067220753,
+        -0.0023763253481560082,
+        -0.00023445904931147297
+      ],
+      [
+        -0.00100514340205756,
+        0.0006855634239268908,
+        0.001304684616524648,
+        0.0036195301682443743,
+        1.949437801023811e-05,
+        0.018828897951073568,
+        0.01051126511458372,
+        0.0019329591069227512,
+        0.002808823285312846,
+        0.00046696122913331996,
+        -0.0005068887826149553,
+        0.00048226179650830457,
+        0.0005333324461218789,
+        0.0006445689738024166,
+        -0.002193193291999345,
+        -0.002376325348156008,
+        0.002972680305258909,
+        -0.0002188657929801619
+      ],
+      [
+        0.0007859540763585754,
+        -0.00012887524455268607,
+        -0.0001749146185771426,
+        -0.001953251821226186,
+        -0.0015383984721695641,
+        1.6942872064587733e-05,
+        -0.00039664554176770025,
+        -0.002673198438520066,
+        -0.0016764896997963038,
+        -0.0026570837797723393,
+        -0.0008813475863918995,
+        -0.0013270886556334374,
+        0.0004004806274247376,
+        -0.00016192238182243868,
+        0.0006458551955848262,
+        -0.00023445904931147283,
+        -0.0002188657929801619,
+        0.0008863638370723781
+      ]
+    ],
+    "joint_weather_Wald_HAC4": {
+      "statistic": 150.62958230247966,
+      "df": 4,
+      "p_asymptotic": 1.492143245575255e-31
+    },
+    "sensitivity": [
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.05195124124106777,
+        "HAC_standard_error": 0.03791032807285047,
+        "rate_ratio": 0.9493751560687488,
+        "CI95_low": 0.8813908402464335,
+        "CI95_high": 1.0226033058257757,
+        "p_asymptotic": 0.1705708973223855,
+        "p_Holm_four_terms": 0.20773397811936561,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5461773969857562,
+        "HAC_standard_error": 0.07538692498527891,
+        "rate_ratio": 1.7266401269377052,
+        "CI95_low": 1.4894720660868672,
+        "CI95_high": 2.0015723663645963,
+        "p_asymptotic": 4.3247622038238205e-13,
+        "p_Holm_four_terms": 1.7299048815295282e-12,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.11316835388002215,
+        "HAC_standard_error": 0.06958259888234093,
+        "rate_ratio": 0.8930003073935279,
+        "CI95_low": 0.7791530818952791,
+        "CI95_high": 1.0234825062427402,
+        "p_asymptotic": 0.10386698905968281,
+        "p_Holm_four_terms": 0.20773397811936561,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.17891774931376045,
+        "HAC_standard_error": 0.05452229181957513,
+        "rate_ratio": 1.1959223746864531,
+        "CI95_low": 1.0747155490094717,
+        "CI95_high": 1.3307989519588501,
+        "p_asymptotic": 0.0010323739591569442,
+        "p_Holm_four_terms": 0.0030971218774708325,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.05195124124106777,
+        "HAC_standard_error": 0.03160103486601325,
+        "rate_ratio": 0.9493751560687488,
+        "CI95_low": 0.8923577770671173,
+        "CI95_high": 1.0100356719284471,
+        "p_asymptotic": 0.10018182442989826,
+        "p_Holm_four_terms": 0.15204670863402422,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 8
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5461773969857562,
+        "HAC_standard_error": 0.06790166878115277,
+        "rate_ratio": 1.7266401269377052,
+        "CI95_low": 1.511484940164897,
+        "CI95_high": 1.9724219863058696,
+        "p_asymptotic": 8.719989467462966e-16,
+        "p_Holm_four_terms": 3.4879957869851865e-15,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 8
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.11316835388002215,
+        "HAC_standard_error": 0.0637841064064543,
+        "rate_ratio": 0.8930003073935279,
+        "CI95_low": 0.7880585378885782,
+        "CI95_high": 1.0119166415499008,
+        "p_asymptotic": 0.07602335431701211,
+        "p_Holm_four_terms": 0.15204670863402422,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 8
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.17891774931376045,
+        "HAC_standard_error": 0.05276178598999498,
+        "rate_ratio": 1.1959223746864531,
+        "CI95_low": 1.0784302903493044,
+        "CI95_high": 1.3262149061228914,
+        "p_asymptotic": 0.0006962590353593696,
+        "p_Holm_four_terms": 0.002088777106078109,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 8
+      },
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.05195124124106777,
+        "HAC_standard_error": 0.028778117925449424,
+        "rate_ratio": 0.9493751560687488,
+        "CI95_low": 0.8973087117129339,
+        "CI95_high": 1.0044627620297846,
+        "p_asymptotic": 0.07103804919050884,
+        "p_Holm_four_terms": 0.11160034774973605,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 12
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5461773969857562,
+        "HAC_standard_error": 0.06563669213786617,
+        "rate_ratio": 1.7266401269377052,
+        "CI95_low": 1.518209749502799,
+        "CI95_high": 1.96368527400631,
+        "p_asymptotic": 8.706201340779153e-17,
+        "p_Holm_four_terms": 3.4824805363116614e-16,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 12
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.11316835388002215,
+        "HAC_standard_error": 0.05917011756429982,
+        "rate_ratio": 0.8930003073935279,
+        "CI95_low": 0.7952174710323104,
+        "CI95_high": 1.0028068774315626,
+        "p_asymptotic": 0.05580017387486803,
+        "p_Holm_four_terms": 0.11160034774973605,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 12
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.17891774931376045,
+        "HAC_standard_error": 0.04980240637934675,
+        "rate_ratio": 1.1959223746864531,
+        "CI95_low": 1.0847036613055727,
+        "CI95_high": 1.318544757702974,
+        "p_asymptotic": 0.00032745491257986587,
+        "p_Holm_four_terms": 0.0009823647377395976,
+        "specification": "main_month_linear_time",
+        "HAC_lags": 12
+      },
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.11250922115444285,
+        "HAC_standard_error": 0.03891387371835078,
+        "rate_ratio": 0.8935891071473593,
+        "CI95_low": 0.8279694576764957,
+        "CI95_high": 0.9644093571437092,
+        "p_asymptotic": 0.003837289450795046,
+        "p_Holm_four_terms": 0.011511868352385138,
+        "specification": "month_no_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5323369075495266,
+        "HAC_standard_error": 0.07999974679814241,
+        "rate_ratio": 1.7029071990234423,
+        "CI95_low": 1.4557777371315583,
+        "CI95_high": 1.9919887868320951,
+        "p_asymptotic": 2.8478237389310944e-11,
+        "p_Holm_four_terms": 1.1391294955724378e-10,
+        "specification": "month_no_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": 0.11382366794611386,
+        "HAC_standard_error": 0.05086961038773532,
+        "rate_ratio": 1.12055451778282,
+        "CI95_low": 1.014221236860185,
+        "CI95_high": 1.2380360237877608,
+        "p_asymptotic": 0.0252499388989981,
+        "p_Holm_four_terms": 0.0504998777979962,
+        "specification": "month_no_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.12331941474930086,
+        "HAC_standard_error": 0.061149027241289254,
+        "rate_ratio": 1.131245699807121,
+        "CI95_low": 1.0034755494307805,
+        "CI95_high": 1.2752845189481894,
+        "p_asymptotic": 0.04372653706182581,
+        "p_Holm_four_terms": 0.0504998777979962,
+        "specification": "month_no_time",
+        "HAC_lags": 4
+      },
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.04737530945063714,
+        "HAC_standard_error": 0.04349737241910519,
+        "rate_ratio": 0.9537293867599481,
+        "CI95_low": 0.8757903065246364,
+        "CI95_high": 1.0386044883038668,
+        "p_asymptotic": 0.2760862610654382,
+        "p_Holm_four_terms": 0.8282587831963146,
+        "specification": "month_year_fixed_effects",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.5508532246728841,
+        "HAC_standard_error": 0.08158314139650458,
+        "rate_ratio": 1.7347325031835235,
+        "CI95_low": 1.4783893317338004,
+        "CI95_high": 2.0355239266182887,
+        "p_asymptotic": 1.4577339283046625e-11,
+        "p_Holm_four_terms": 5.83093571321865e-11,
+        "specification": "month_year_fixed_effects",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.031270173096868775,
+        "HAC_standard_error": 0.08812459106346585,
+        "rate_ratio": 0.9692136822376318,
+        "CI95_low": 0.8154695491359287,
+        "CI95_high": 1.1519438866012726,
+        "p_asymptotic": 0.7227090927950806,
+        "p_Holm_four_terms": 0.8282587831963146,
+        "specification": "month_year_fixed_effects",
+        "HAC_lags": 4
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.08520796595478619,
+        "HAC_standard_error": 0.08090016971891843,
+        "rate_ratio": 1.0889435063277173,
+        "CI95_low": 0.9292723178490172,
+        "CI95_high": 1.2760500202115834,
+        "p_asymptotic": 0.2922272085702826,
+        "p_Holm_four_terms": 0.8282587831963146,
+        "specification": "month_year_fixed_effects",
+        "HAC_lags": 4
+      },
+      {
+        "term": "heat",
+        "label": "Temperatura más alta",
+        "beta": -0.05331975574493418,
+        "HAC_standard_error": 0.044576549597054885,
+        "rate_ratio": 0.9480768110027171,
+        "CI95_low": 0.8687601597369974,
+        "CI95_high": 1.034634967415165,
+        "p_asymptotic": 0.2316422655205551,
+        "p_Holm_four_terms": 0.2316422655205551,
+        "specification": "month_linear_time_log1p_rain",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rain_deficit",
+        "label": "Déficit de lluvia",
+        "beta": 0.3000851615168131,
+        "HAC_standard_error": 0.07170318489473224,
+        "rate_ratio": 1.3499737684945934,
+        "CI95_low": 1.1729823252225184,
+        "CI95_high": 1.5536714717996911,
+        "p_asymptotic": 2.8503774739911474e-05,
+        "p_Holm_four_terms": 0.0001140150989596459,
+        "specification": "month_linear_time_log1p_rain",
+        "HAC_lags": 4
+      },
+      {
+        "term": "rh_deficit",
+        "label": "Déficit de humedad relativa",
+        "beta": -0.1668183555552778,
+        "HAC_standard_error": 0.07762364529501933,
+        "rate_ratio": 0.8463533327566121,
+        "CI95_low": 0.7269061480075937,
+        "CI95_high": 0.985428402045571,
+        "p_asymptotic": 0.031629149428747574,
+        "p_Holm_four_terms": 0.06325829885749515,
+        "specification": "month_linear_time_log1p_rain",
+        "HAC_lags": 4
+      },
+      {
+        "term": "soil_deficit",
+        "label": "Déficit de humedad del suelo",
+        "beta": 0.22877314102785415,
+        "HAC_standard_error": 0.05544107485772372,
+        "rate_ratio": 1.257056832039337,
+        "CI95_low": 1.127621594631611,
+        "CI95_high": 1.401349430074559,
+        "p_asymptotic": 3.684546462722647e-05,
+        "p_Holm_four_terms": 0.0001140150989596459,
+        "specification": "month_linear_time_log1p_rain",
+        "HAC_lags": 4
+      }
+    ],
+    "sensitivity_diagnostics": [
+      {
+        "specification": "month_no_time",
+        "converged": true,
+        "alpha": 0.12114804099868631,
+        "n": 114,
+        "estimated_parameters": 17
+      },
+      {
+        "specification": "month_year_fixed_effects",
+        "converged": true,
+        "alpha": 0.08541392125849638,
+        "n": 114,
+        "estimated_parameters": 26
+      },
+      {
+        "specification": "month_linear_time_log1p_rain",
+        "converged": true,
+        "alpha": 0.13506735204456982,
+        "n": 114,
+        "estimated_parameters": 18
+      }
+    ],
+    "terms_supported_all_sensitivity_specifications": [
+      "rain_deficit"
+    ],
+    "interpretation_of_soil_sensitivity": "Positive association in primary linear-time model; year fixed effects CI includes 1, so independent contribution is sensitive to temporal control.",
+    "activity_group_difference_inference": [
+      {
+        "variable": "temperature_2m_c",
+        "label": "Temperatura media",
+        "unit": "°C",
+        "difference": 0.7839931972789098,
+        "HAC_standard_error": 0.19673496115420266,
+        "CI95_low": 0.39839975891678603,
+        "CI95_high": 1.1695866356410336,
+        "p_asymptotic": 6.747380334189505e-05,
+        "p_Holm_six_terms": 0.0002698952133675802
+      },
+      {
+        "variable": "precipitation_mm",
+        "label": "Precipitación mensual",
+        "unit": "mm/mes",
+        "difference": -34.47371088435377,
+        "HAC_standard_error": 5.5908072332196905,
+        "CI95_low": -45.43149170597039,
+        "CI95_high": -23.51593006273715,
+        "p_asymptotic": 6.99762823688432e-10,
+        "p_Holm_six_terms": 4.198576942130592e-09
+      },
+      {
+        "variable": "relative_humidity_2m_pct",
+        "label": "Humedad relativa",
+        "unit": "%",
+        "difference": -4.2123639455782405,
+        "HAC_standard_error": 1.355418811464816,
+        "CI95_low": -6.868936000017365,
+        "CI95_high": -1.5557918911391155,
+        "p_asymptotic": 0.001884886982012057,
+        "p_Holm_six_terms": 0.005654660946036171
+      },
+      {
+        "variable": "soil_moisture_0_10cm_kgm2",
+        "label": "Humedad del suelo 0–10 cm",
+        "unit": "kg/m²",
+        "difference": -2.621319727891158,
+        "HAC_standard_error": 0.4333911396538334,
+        "CI95_low": -3.4707507528314405,
+        "CI95_high": -1.7718887029508759,
+        "p_asymptotic": 1.4629816885283842e-09,
+        "p_Holm_six_terms": 7.314908442641921e-09
+      },
+      {
+        "variable": "wind_speed_10m_ms",
+        "label": "Viento a 10 m",
+        "unit": "m/s",
+        "difference": -0.013142857142857397,
+        "HAC_standard_error": 0.04925322470642254,
+        "CI95_low": -0.10967740368990395,
+        "CI95_high": 0.08339168940418915,
+        "p_asymptotic": 0.7895903748476144,
+        "p_Holm_six_terms": 0.7895903748476144
+      },
+      {
+        "variable": "aod_550",
+        "label": "Aerosoles AOD 550 nm",
+        "unit": "adimensional",
+        "difference": 0.008868891156462583,
+        "HAC_standard_error": 0.0055941320789702495,
+        "CI95_low": -0.0020954062430792834,
+        "CI95_high": 0.01983318855600445,
+        "p_asymptotic": 0.11287734186754311,
+        "p_Holm_six_terms": 0.22575468373508623
+      }
+    ],
+    "multiplicity": "Holm across four primary NB weather coefficients; Holm separately across six descriptive activity contrasts. CI95 marginal, not simultaneous.",
+    "limitations": [
+      "Exploratory hypotheses after examining the same data; no independent confirmation.",
+      "Only 114 months; HAC normal inference is asymptotic and bandwidth-sensitive.",
+      "HAC handles covariance, not mean-model misspecification or confounding.",
+      "Group-contrast intervals condition on observed activity groups and their empirical thresholds.",
+      "Weather terms are associated and modeled linearly on log rate; no interaction or causal interpretation.",
+      "No population, land-use or reporting-effort offset is available; days are the only exposure offset.",
+      "The NB model describes counts, not individual ignition probability, burned area or forecasts."
+    ],
+    "output": {
+      "file": "modelo_conaf_binomial_negativa.csv",
+      "rows": 4,
+      "sha256": "9bde1016f944a84db8de27f6a1794fc320a7f0160dfb6e12e36b144bb51250c0"
+    },
+    "documentation": [
+      "https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html",
+      "https://www.statsmodels.org/stable/generated/statsmodels.stats.sandwich_covariance.cov_hac.html"
+    ]
+  }
+}
