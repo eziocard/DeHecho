@@ -1,0 +1,613 @@
+{
+  "scope": {
+    "start": "2014-01",
+    "end": "2023-12",
+    "months": 120,
+    "communes": 32
+  },
+  "source_sha256": {
+    "region_mensual.csv": "23e19db8d6e0aea2d3f4366ccf1be9bbe8b3dab33cc7b4c46fd07029e2cbaa63",
+    "comunas_mensual.csv": "ba1d284397f7f5d06fee223d611435a63ab01feb28aeac416d60cc08a02b583c",
+    "infraestructura_vial_referencia_2019.csv": "46a28f4f53efee45ee0b8eeda5f4ed961cabcd227faad42ebf17246e9bc39625",
+    "metadatos.json": "62c3b0bf6ffb408b039d0c98b273b279e854eb7dc7934f1ed22c2c4f5e4de242"
+  },
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "control": "Región: fechas válidas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: claves completas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: sin claves duplicadas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: calendario 2014–2023",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: región 09",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: variables numéricas finitas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: sin faltantes en mediciones",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango precipitation_mm",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango relative_humidity_2m_pct",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango specific_humidity_2m_kgkg",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango wind_speed_10m_ms",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango wind_speed_lowest_model_ms",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango aod_550",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rango soil_moisture_0_10cm_kgm2",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: rocío ≤ temperatura media",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: máxima de malla ≥ media de máximas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: cobertura espacial válida",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: fechas válidas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: claves completas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: sin claves duplicadas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: calendario 2014–2023",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: región 09",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: variables numéricas finitas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: sin faltantes en mediciones",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango precipitation_mm",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango relative_humidity_2m_pct",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango specific_humidity_2m_kgkg",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango wind_speed_10m_ms",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango wind_speed_lowest_model_ms",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango aod_550",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rango soil_moisture_0_10cm_kgm2",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: rocío ≤ temperatura media",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: máxima de malla ≥ media de máximas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: cobertura espacial válida",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "32 comunas y 120 meses por comuna",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Códigos comunales válidos",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Un nombre por código comunal",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Región: 120 filas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Comunas: 3.840 filas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Vialidad: una región y 32 comunas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Vialidad: referencia única 2019",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Vialidad: longitudes válidas",
+      "resultado": "OK",
+      "detalle": ""
+    },
+    {
+      "control": "Vialidad: suma comunal ≈ total regional",
+      "resultado": "OK",
+      "detalle": ""
+    }
+  ],
+  "cleaning_log": [
+    {
+      "tabla": "región mensual",
+      "campo": "region_name",
+      "antes": "La Araucan?a",
+      "después": "La Araucanía",
+      "filas": 120
+    },
+    {
+      "tabla": "referencia vial",
+      "campo": "name",
+      "antes": "La Araucan?a",
+      "después": "La Araucanía",
+      "filas": 1
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "temperature_2m_c",
+      "antes": "?C",
+      "después": "°C",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "dewpoint_2m_c",
+      "antes": "?C",
+      "después": "°C",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "soil_moisture_0_10cm_kgm2",
+      "antes": "kg/m?",
+      "después": "kg/m²",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "soil_temperature_0_10cm_c",
+      "antes": "?C",
+      "después": "°C",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "aod_550",
+      "antes": "1",
+      "después": "adimensional",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "precipitation_mm",
+      "antes": "mm/month",
+      "después": "mm/mes",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "temperature_monthly_max_c",
+      "antes": "?C",
+      "después": "°C",
+      "filas": null
+    },
+    {
+      "tabla": "metadatos",
+      "campo": "temperature_monthly_peak_area_mean_c",
+      "antes": "?C",
+      "después": "°C",
+      "filas": null
+    }
+  ],
+  "units": {
+    "temperature_2m_c": "°C",
+    "dewpoint_2m_c": "°C",
+    "specific_humidity_2m_kgkg": "kg/kg",
+    "wind_u_10m_ms": "m/s",
+    "wind_v_10m_ms": "m/s",
+    "wind_speed_lowest_model_ms": "m/s",
+    "soil_moisture_0_10cm_kgm2": "kg/m²",
+    "soil_temperature_0_10cm_c": "°C",
+    "aod_550": "adimensional",
+    "precipitation_mm": "mm/mes",
+    "temperature_monthly_max_c": "°C",
+    "relative_humidity_2m_pct": "%",
+    "wind_speed_10m_ms": "m/s",
+    "temperature_monthly_peak_area_mean_c": "°C"
+  },
+  "measurement_values_changed": 0,
+  "rows_removed": 0,
+  "values_imputed": 0,
+  "soil_coverage_threshold_pct": 80.0,
+  "soil_rows_flagged_region": 0,
+  "soil_rows_flagged_communes": 120,
+  "communes_with_low_soil_coverage": [
+    {
+      "commune_id": "09116",
+      "commune_name": "Saavedra",
+      "cobertura_suelo_min_pct": 36.49,
+      "meses_con_cobertura_insuficiente": 120
+    }
+  ],
+  "regional_IQR_review_signals": [
+    {
+      "month": "2016-05",
+      "variable": "temperature_2m_c",
+      "valor": 9.217,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-09",
+      "variable": "temperature_2m_c",
+      "valor": 8.634,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2017-05",
+      "variable": "temperature_2m_c",
+      "valor": 7.047,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2017-08",
+      "variable": "temperature_2m_c",
+      "valor": 4.571,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2019-01",
+      "variable": "temperature_2m_c",
+      "valor": 14.558,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-05",
+      "variable": "temperature_2m_c",
+      "valor": 6.469,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-11",
+      "variable": "temperature_2m_c",
+      "valor": 15.36,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-01",
+      "variable": "temperature_2m_c",
+      "valor": 17.08,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-06",
+      "variable": "temperature_2m_c",
+      "valor": 6.569,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-07",
+      "variable": "temperature_2m_c",
+      "valor": 5.734,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2014-01",
+      "variable": "precipitation_mm",
+      "valor": 75.036,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-06",
+      "variable": "precipitation_mm",
+      "valor": 42.406,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-12",
+      "variable": "precipitation_mm",
+      "valor": 66.25,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2017-02",
+      "variable": "precipitation_mm",
+      "valor": 64.269,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2018-03",
+      "variable": "precipitation_mm",
+      "valor": 130.108,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2018-11",
+      "variable": "precipitation_mm",
+      "valor": 110.979,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2021-01",
+      "variable": "precipitation_mm",
+      "valor": 68.149,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-11",
+      "variable": "precipitation_mm",
+      "valor": 77.564,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2014-09",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 86.468,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-01",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 73.035,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-09",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 76.002,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2018-01",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 70.707,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-09",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 76.747,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-11",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 59.501,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-01",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 55.576,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-05",
+      "variable": "relative_humidity_2m_pct",
+      "valor": 72.902,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2014-01",
+      "variable": "wind_speed_10m_ms",
+      "valor": 3.184,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2015-01",
+      "variable": "wind_speed_10m_ms",
+      "valor": 2.784,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2015-11",
+      "variable": "wind_speed_10m_ms",
+      "valor": 2.44,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-01",
+      "variable": "wind_speed_10m_ms",
+      "valor": 2.323,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-06",
+      "variable": "wind_speed_10m_ms",
+      "valor": 2.187,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2020-01",
+      "variable": "wind_speed_10m_ms",
+      "valor": 3.101,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-12",
+      "variable": "wind_speed_10m_ms",
+      "valor": 3.244,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-11",
+      "variable": "wind_speed_10m_ms",
+      "valor": 3.141,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2015-04",
+      "variable": "aod_550",
+      "valor": 0.092784,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2015-05",
+      "variable": "aod_550",
+      "valor": 0.067558,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2016-05",
+      "variable": "aod_550",
+      "valor": 0.078835,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2017-03",
+      "variable": "aod_550",
+      "valor": 0.108189,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2020-01",
+      "variable": "aod_550",
+      "valor": 0.162564,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-06",
+      "variable": "aod_550",
+      "valor": 0.062214,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2022-07",
+      "variable": "aod_550",
+      "valor": 0.06302,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    },
+    {
+      "month": "2023-10",
+      "variable": "aod_550",
+      "valor": 0.100393,
+      "criterio": "IQR dentro del mes calendario; revisar, no eliminar"
+    }
+  ],
+  "findings_descriptive_only": {
+    "warmest_year_in_this_period": 2021,
+    "lowest_precipitation_year_in_this_period": 2021,
+    "strongest_anomaly_spearman_pair": [
+      "relative_humidity_2m_pct",
+      "soil_moisture_0_10cm_kgm2"
+    ],
+    "strongest_anomaly_spearman_value": 0.5835311194034758
+  },
+  "road_commune_id_missing_is_intentional_for_regional_row": true,
+  "CONAF_join_performed": false,
+  "outputs": {
+    "comunas_mensual_limpio.csv": {
+      "rows": 3840,
+      "sha256": "b9e446479af066053e7d3a52f42f64428af741622ee32f986fe9611170119275"
+    },
+    "infraestructura_vial_limpia.csv": {
+      "rows": 33,
+      "sha256": "1df85223a60b8cb32ccc84738749fd28c6c90ce4e98695a2b9792be24bb663ce"
+    },
+    "region_mensual_limpio.csv": {
+      "rows": 120,
+      "sha256": "f3be7c486ed75eaa86a6d0b2618c47d298caf8e588a2abf4dbef54578f21ff6f"
+    }
+  }
+}
