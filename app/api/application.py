@@ -27,8 +27,9 @@ def create_app(
 
     application = FastAPI(
         title="DeHecho — Inspector estadístico",
-        version="0.3.0",
-        description="Consulta directa del ambiente y los resultados explicativos CONAF. Sin pronósticos ni recálculo por petición.",
+        version="0.4.0",
+        description=("Consulta directa del ambiente, tendencias regionales exploratorias y resultados explicativos CONAF. "
+                     "Sin pronósticos ni recálculo por petición."),
         lifespan=lifespan,
     )
 

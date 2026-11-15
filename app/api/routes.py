@@ -57,7 +57,13 @@ def get_series(params: Annotated[SeriesQuery, Query()], publication: CurrentPubl
 
 @router.get("/api/tendencias", tags=["resultados"], response_model=list[TrendResponse], response_model_exclude_unset=True)
 def get_trends(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
-    """Conserva el período y la familia de pruebas de la estimación publicada."""
+    """Usar dataset=tendencias_ambientales o tendencias_regionales_exploratorias.
+
+    Ejemplo exploratorio: variable=temperature_monthly_peak_area_mean_c, territory_id=09.
+    La exploración es solo regional: 14 estimaciones, 120 meses de 2014–2023.
+    Filtrar conserva el período y la familia Holm de cada análisis, sin mezclarlos.
+    Las estimaciones VPD son proxies de medias mensuales, no series ni extremos diarios.
+    """
     return query_results(publication, kind=Kind.TRENDS, **params.model_dump())
 
 
@@ -77,8 +83,10 @@ def get_associations(params: Annotated[ResultQuery, Query()], publication: Curre
 
 @router.get("/api/hallazgos", tags=["resultados"], response_model=list[FindingResponse], response_model_exclude_unset=True)
 def get_findings(params: Annotated[ResultQuery, Query()], publication: CurrentPublication):
-    """Usar dataset=hallazgos_conaf; permite filtrar por variable ambiental y región 09.
+    """Usar dataset=hallazgos_conaf o hallazgos_ambientales; región 09.
 
-    Resúmenes deterministas del análisis existente, sin nuevas estimaciones.
+    Ejemplo ambiental: variable=dewpoint_2m_c, territory_id=09.
+    Resúmenes deterministas de análisis existentes, sin nuevas estimaciones.
+    Los ambientales son exploratorios de 2014–2023, no nuevas asociaciones CONAF.
     """
     return query_results(publication, kind=Kind.FINDINGS, **params.model_dump())

@@ -15,6 +15,8 @@ Así se responde al desafío [Earth System Trend Detective de NASA Space Apps 20
 
 Los análisis están disponibles en `analisis.ipynb` y sus resultados en `datos_mensuales_2014_2023/limpios/`. La API sirve series y tendencias ambientales, los cuatro efectos ajustados del modelo CONAF y sus resúmenes. Correlaciones y contrastes quedan para una incorporación posterior. Solo se requiere reejecución si cambian los datos efectivos o el análisis; no se recalcula por consulta. Véase [ARQUITECTURA.md](ARQUITECTURA.md).
 
+También sirve las 14 tendencias regionales exploratorias existentes en `docs/investigacion/` y cinco resúmenes ambientales. Mantienen su propia corrección Holm, sin sustituir el análisis original ni ampliar las series.
+
 ## Datos y límites importantes
 
 - **Ambiente:** 120 meses de 2014–2023 y 32 comunas. El contexto regional conjunto con incendios cubre 114 meses: julio de 2014–diciembre de 2023.
@@ -25,7 +27,9 @@ Los análisis están disponibles en `analisis.ipynb` y sus resultados en `datos_
 
 ## Qué respaldan los resultados actuales
 
-La **humedad relativa presenta descenso con evidencia** en la región y sus comunas durante 2014–2023. Las otras tres variables no alcanzan evidencia tras la corrección aplicada; eso no demuestra ausencia de cambio.
+En el análisis original de cuatro variables, la **humedad relativa presenta descenso con evidencia** en la región y sus comunas durante 2014–2023. Las otras tres variables no alcanzan evidencia tras la corrección aplicada; eso no demuestra ausencia de cambio.
+
+La exploración regional muestra aumento de picos mensuales y descenso de punto de rocío y humedad específica. Los proxies VPD no son el VPD medio verdadero; las señales comparten información y no prueban nuevas asociaciones con incendios ni diferencias entre pendientes. No se extrapolan a comunas.
 
 El **déficit de lluvia conserva la asociación ajustada con incendios más estable entre las variantes examinadas**. No debe confundirse con la variable que más cambia ni con un predictor validado.
 

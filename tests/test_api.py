@@ -490,7 +490,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(settings.project_root, Path(__file__).resolve().parents[1])
             with TestClient(create_app()) as client:
                 self.assertEqual(client.get("/health").json(), {"status": "ok"})
-                self.assertEqual(len(client.get("/api/catalogo").json()), 5)
+                self.assertEqual(len(client.get("/api/catalogo").json()), 7)
 
     def test_season_is_not_disaggregated_to_months(self):
         def seasonal(doc):

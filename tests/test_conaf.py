@@ -28,6 +28,7 @@ from app.datos.conaf import (
 )
 from app.datos.environment import INPUT_PATHS as ENVIRONMENT_INPUTS
 from app.datos.environment import csv_records, digest
+from app.datos.exploration import INPUT_PATHS as EXPLORATION_INPUTS
 from app.datos.load_data import load_data
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 class ConafIntegrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        for name in ("app.datos.load_environment", "app.datos.load_conaf"):
+        for name in ("app.datos.load_environment", "app.datos.load_conaf", "app.datos.load_exploration"):
             logger = logging.getLogger(name)
             level = logger.level
             logger.setLevel(logging.CRITICAL)
@@ -45,7 +46,7 @@ class ConafIntegrationTests(unittest.TestCase):
         cls.addClassCleanup(cls.temp.cleanup)
         cls.root = Path(cls.temp.name)
         cls.files = {path: (PROJECT / path).read_bytes()
-                     for path in dict.fromkeys((*ENVIRONMENT_INPUTS, *CONAF_INPUTS))}
+                     for path in dict.fromkeys((*ENVIRONMENT_INPUTS, *CONAF_INPUTS, *EXPLORATION_INPUTS))}
         cls.write_inputs(cls.root)
         cls.client = TestClient(create_app(Settings(project_root=cls.root)))
         cls.client.__enter__()
@@ -82,6 +83,7 @@ class ConafIntegrationTests(unittest.TestCase):
             self.assertEqual(available, {
                 "ambiente_region": True, "ambiente_comunas": True, "tendencias_ambientales": True,
                 "asociaciones_conaf": False, "hallazgos_conaf": False,
+                "tendencias_regionales_exploratorias": True, "hallazgos_ambientales": True,
             })
             for endpoint, dataset in (("asociaciones", "asociaciones_conaf"), ("hallazgos", "hallazgos_conaf")):
                 response = client.get(f"/api/{endpoint}", params={"dataset": dataset})
@@ -89,10 +91,10 @@ class ConafIntegrationTests(unittest.TestCase):
                 self.assertEqual(response.json()["error"]["code"], f"dataset_{status}")
             self.assertEqual(client.get("/api/tendencias", params={"dataset": "tendencias_ambientales"}).status_code, 200)
 
-    def test_all_five_datasets_are_available(self):
+    def test_all_seven_datasets_are_available(self):
         self.assertEqual(self.client.get("/health").json(), {"status": "ok"})
         catalog = {item["id"]: item for item in self.client.get("/api/catalogo").json()}
-        self.assertEqual(len(catalog), 5)
+        self.assertEqual(len(catalog), 7)
         self.assertTrue(all(item["available"] for item in catalog.values()))
         self.assertEqual(catalog["asociaciones_conaf"]["territories"], ["09"])
         self.assertEqual(set(catalog["asociaciones_conaf"]["variables"]), {item[0] for item in TERMS.values()})
@@ -209,7 +211,7 @@ class ConafIntegrationTests(unittest.TestCase):
         with patch.object(Path, "read_bytes", read):
             loaded = load_data(self.root)
         self.assertEqual(reads, Counter({path: 1 for path in self.files}))
-        self.assertEqual(len(loaded.documents), 5)
+        self.assertEqual(len(loaded.documents), 7)
 
     def test_original_files_are_not_modified_and_nothing_is_generated(self):
         for name, content in self.files.items():
