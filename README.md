@@ -1,84 +1,126 @@
 # DeHecho
 
-Inspector estadístico de La Araucanía. Véanse [el proyecto](PROYECTO.md) y [la arquitectura](ARQUITECTURA.md).
+**A statistical explorer of environmental change and wildfire associations in La Araucanía, Chile.**
 
-## Ejecutar en local
+![DeHecho interface showing a low-poly map of La Araucanía, environmental indicators, and a monthly time series](image.webp)
 
-Desde la raíz del proyecto, con Python 3.12 o superior. El entorno de referencia usa Python 3.14.10 en Linux. Crea el entorno solo si todavía no existe:
+*Interface preview. The frontend is maintained in a separate repository: [low-poly-studio](https://github.com/maiki-22/low-poly-studio).*
+
+## Project overview
+
+DeHecho helps users examine **how environmental conditions change, where those changes occur, how large they are, and what statistical evidence supports them**. It also examines their associations with wildfires recorded by Chile's National Forestry Corporation (CONAF).
+
+Developed for the [NASA Space Apps 2026 Earth System Trend Detective challenge](https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/?tab=details), the project turns existing environmental data and statistical analyses into a read-only evidence explorer. **It is not a forecasting, risk prediction, or alert system.**
+
+This repository contains the analysis and FastAPI backend. The separate frontend presents the territory through a low-poly interface using Blockbench assets; its API integration is outside the scope of this backend implementation. See the [architecture](ARQUITECTURA.md) and [project brief](PROYECTO.md) for further details.
+
+### What can be explored
+
+- Regional and municipal time series of temperature, precipitation, relative humidity, and soil moisture.
+- Monthly anomalies: departures from typical conditions for the same calendar month within the reference period, documented in the analysis outputs.
+- Environmental trends for 2014–2023, with magnitude, uncertainty, and statistical evidence.
+- Four adjusted regional wildfire associations from the existing negative binomial model, together with summaries of its findings and sensitivity.
+- Fourteen exploratory regional trends and five environmental summaries, preserving a separate Holm multiple-testing correction.
+
+The analyses are available in `analisis.ipynb`, with outputs in `datos_mensuales_2014_2023/limpios/` and exploratory research in `docs/investigacion/`. The API serves the existing series, trends, adjusted associations, and summaries; correlations and group comparisons are not yet exposed. Analyses only need to be rerun when the underlying data or analysis changes, never for individual requests.
+
+### Main findings
+
+- **Relative humidity declines with statistical evidence** at regional and municipal scales during 2014–2023 in the original four-variable analysis. The other three variables do not meet the evidence threshold after correction; this does not demonstrate an absence of change.
+- The regional exploration identifies increasing area-mean monthly temperature peaks and declining dew point and specific humidity. These signals share underlying information and are not independent confirmations. Vapor pressure deficit (VPD) proxies are not true mean VPD; these results establish neither new wildfire associations nor differences between trend slopes, and cannot be extrapolated to municipalities.
+- **Rainfall deficit has the most stable adjusted association with wildfire counts across the model variants examined.** This is not necessarily the variable changing most strongly, nor a validated predictor.
+
+### Data coverage and interpretation
+
+- **Environmental coverage:** 120 months from January 2014 to December 2023, covering 32 municipalities. The joint regional wildfire analysis uses 114 matched months, July 2014–December 2023.
+- **Wildfire coverage:** regional monthly counts and municipal counts by July–June fire season. There are no fire coordinates or municipal monthly breakdowns; regional totals must not be distributed across municipalities.
+- **Regional alignment:** `definitivo.csv` aligns the same 114 matched months by calendar `fecha`; `año_x` retains the fire-season starting year. It does not replace the 120-month environmental baseline used for trends.
+- **Quality:** Saavedra's soil moisture is excluded because of low coverage, while its other variables are retained. Unknown coverage is not equivalent to 100%; missing values are not zeros. Municipalities may share source pixels and are not independent replicates.
+- **Interpretation:** the negative binomial model and its associations are explanatory, not evidence of causality or predictions of risk. Fire counts do not measure burned area or severity. Regional associations must not be interpreted as municipal effects.
+
+## Use of SI
+
+OpenAI Codex and GPT models were used to automate most of the code generation for the API and preliminary dataset analysis. AI assistance does not independently validate scientific findings or replace review and testing. Responsibility for methodological choices, validation, and interpretation remains with the project team.
+
+## Run locally
+
+From the project root, use Python 3.12 or later. The reference environment uses Python 3.14.10 on Linux. Create the virtual environment only if it does not already exist:
 
 ```sh
 python3 -m venv .venv
 ```
 
-Instala o actualiza las dependencias de API, análisis y pruebas desde el único archivo:
+Install or update the API, analysis, and test dependencies from the single requirements file:
 
 ```sh
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python -m pip check
 ```
 
-`requirements.txt` conserva también los paquetes adicionales del entorno de trabajo. No lo reemplaces con `pip freeze` sin revisar el cambio: ese comando refleja solo lo instalado en el intérprete elegido, no lo que necesita todo el proyecto.
+`requirements.txt` also retains additional packages used by the working environment. Do not replace it with `pip freeze` without reviewing the change: that command reflects only what is installed in the selected interpreter, not the requirements of the whole project.
 
-Para iniciar:
+Start the service:
 
 ```sh
 .venv/bin/python -m uvicorn main:app --reload
 ```
 
-Abre **http://127.0.0.1:8000/docs**. No necesitas generar publicaciones ni definir `DEHECHO_MANIFEST`; esa variable ya no se utiliza.
+Open **http://127.0.0.1:8000/docs**. No publication artifacts or environment-variable configuration are required. The legacy `DEHECHO_MANIFEST` variable is no longer used.
 
-## Datos disponibles
+## Available datasets
 
-La API lee directamente los CSV y JSON ambientales, los resultados de `limpios/` y `docs/investigacion/`, las fuentes `data/conaf/` y `definitivo.csv` al arrancar. No copia archivos, no escribe manifiestos y no ejecuta notebooks.
+At startup, the API reads the environmental CSV and JSON files, the results in `limpios/` and `docs/investigacion/`, the `data/conaf/` sources, and `definitivo.csv` directly. It does not copy files, write manifests, or execute notebooks. API routes, dataset identifiers, and source filenames retain their original names.
 
-| `dataset` | Contenido |
+| `dataset` | Contents |
 | --- | --- |
-| `ambiente_region` | Cuatro variables ambientales, 120 meses. |
-| `ambiente_comunas` | Las mismas variables, 32 comunas. |
-| `tendencias_ambientales` | 132 filas de tendencias 2014–2023, incluida la exclusión del suelo de Saavedra. |
-| `asociaciones_conaf` | Cuatro razones de tasas ajustadas del modelo binomial negativo regional, sobre 114 meses. |
-| `hallazgos_conaf` | Cinco resúmenes del modelo, su sensibilidad y la presencia mensual de incendios. |
-| `tendencias_regionales_exploratorias` | 14 estimaciones regionales 2014–2023, con su propia familia Holm de 14 pruebas. |
-| `hallazgos_ambientales` | Cinco resúmenes exploratorios sobre picos térmicos, vapor de agua y proxies VPD. |
+| `ambiente_region` | Four environmental variables over 120 months. |
+| `ambiente_comunas` | The same variables across 32 municipalities. |
+| `tendencias_ambientales` | 132 trend rows for 2014–2023, including the Saavedra soil-moisture exclusion. |
+| `asociaciones_conaf` | Four adjusted rate ratios from the regional negative binomial model, using 114 months. |
+| `hallazgos_conaf` | Five summaries covering the model, its sensitivity, and monthly wildfire occurrence. |
+| `tendencias_regionales_exploratorias` | 14 regional estimates for 2014–2023, with a separate Holm family of 14 tests. |
+| `hallazgos_ambientales` | Five exploratory summaries of temperature peaks, atmospheric moisture, and VPD proxies. |
 
-Los dos identificadores nuevos seleccionan resultados existentes, no nuevos archivos ni mediciones. La investigación permanece en su ubicación original; su marcador histórico `exploratory_not_published_to_API` se conserva sin editar, aunque estos resultados ya pueden consultarse.
+The two exploratory identifiers select existing results, not new files or measurements. Research files remain in their original location; the historical `exploratory_not_published_to_API` marker is preserved unchanged, although these results are now available through the API.
 
-Se verifican integridad, fechas, códigos, unidades y calidad. Solo se admite equivalencia de hashes históricos por saltos de línea `LF/CRLF`; cualquier cambio de contenido bloquea los conjuntos afectados. Los detalles de validación quedan en los logs y registros internos, no en las respuestas.
+Integrity, dates, codes, units, and quality are validated. Historical hash equivalence is accepted only for `LF/CRLF` line-ending differences; any content change blocks the affected datasets. Validation details remain in logs and internal records, not in responses.
 
-Después de actualizar CSV o JSON, **reinicia el servicio**. Los análisis afectados deben reejecutarse fuera de la API cuando corresponda; los archivos no se vigilan ni se recalculan por petición. Un cambio CONAF no deshabilita los resultados ambientales independientes. Una investigación exploratoria ausente o inválida no bloquea los cinco conjuntos anteriores.
+After updating CSV or JSON files, **restart the service**. Rerun affected analyses outside the API when necessary; files are neither watched nor recalculated per request. A CONAF source change does not disable independent environmental results. Missing or invalid exploratory research does not block the five previously available datasets.
 
-## Probar desde `/docs`
+## Try the API in `/docs`
 
-Pulsa **Try it out**, completa los parámetros y luego **Execute**. Deja vacíos los campos opcionales que no utilices.
+Select **Try it out**, enter the parameters, and select **Execute**. Leave unused optional fields empty.
 
 - `/api/series`: `dataset=ambiente_region`, `variable=temperature_2m_c`, `territory_id=09`, `start=2020-01-01`, `end=2020-12-31`.
-- `/api/series`: `dataset=ambiente_comunas`, `territory_id=09116`, `variable=soil_moisture_0_10cm_kgm2`. Devuelve valores `null` por calidad insuficiente.
+- `/api/series`: `dataset=ambiente_comunas`, `territory_id=09116`, `variable=soil_moisture_0_10cm_kgm2`. Returns `null` values because of insufficient data quality.
 - `/api/tendencias`: `dataset=tendencias_ambientales`, `variable=relative_humidity_2m_pct`, `territory_id=09`.
 - `/api/tendencias`: `dataset=tendencias_regionales_exploratorias`, `variable=temperature_monthly_peak_area_mean_c`, `territory_id=09`.
 - `/api/asociaciones`: `dataset=asociaciones_conaf`, `variable=precipitation_mm`, `territory_id=09`.
 - `/api/hallazgos`: `dataset=hallazgos_conaf`, `variable=soil_moisture_0_10cm_kgm2`, `territory_id=09`.
 - `/api/hallazgos`: `dataset=hallazgos_ambientales`, `variable=dewpoint_2m_c`, `territory_id=09`.
 
-## Respuestas
+## API responses
 
-- `/health`: solo `{"status":"ok"}` o `{"status":"degraded"}`. El código `200` indica que el servicio responde.
-- `/api/catalogo`: lista de conjuntos, disponibilidad y opciones de selección.
-- `/api/series`: lista de series agrupadas con `points` (`start`, `end`, `value` y motivo si falta el valor).
-- `/api/tendencias`: resultados planos con pendiente, intervalo marginal, p Holm, estado, muestra utilizada y exclusión si corresponde.
-- `/api/asociaciones`: razones de tasas, intervalo marginal, p Holm, muestra y escala del cambio ambiental. `increment` es una magnitud positiva; `direction=decrease` significa disminución de la anomalía mensual. `unit` corresponde al incremento, no a la razón de tasas. Son asociaciones ajustadas, no causalidad ni pronósticos.
-- `/api/hallazgos`: títulos y resúmenes derivados de los reportes existentes, con período y variable cuando corresponde. Los CONAF conservan la sensibilidad del suelo y la falta de evidencia independiente para temperatura y humedad relativa; los ambientales explicitan su carácter exploratorio y límites.
+- `/health`: only `{"status":"ok"}` or `{"status":"degraded"}`. HTTP `200` indicates that the service is responding.
+- `/api/catalogo`: a list of datasets, availability, and selection options.
+- `/api/series`: a list of grouped series with `points` (`start`, `end`, `value`, and a reason when a value is missing).
+- `/api/tendencias`: flat results with slope, marginal confidence interval, Holm-adjusted p-value, status, sample used, and exclusion where applicable.
+- `/api/asociaciones`: rate ratios, marginal confidence interval, Holm-adjusted p-value, sample size, and scale of environmental change. `increment` is a positive magnitude; `direction=decrease` means a decrease in the monthly anomaly. `unit` describes the increment, not the rate ratio. These are adjusted associations, not causal effects or forecasts.
+- `/api/hallazgos`: titles and summaries derived from existing reports, with period and variable where applicable. CONAF summaries preserve the soil-moisture result's sensitivity and the lack of conclusive independent evidence for temperature and relative humidity; environmental summaries explicitly state their exploratory status and limitations.
 
-Las asociaciones y hallazgos CONAF son regionales (`09`) y cubren julio de 2014–diciembre de 2023. No se extrapolan a comunas ni a otros períodos. Correlaciones y contrastes de grupos quedan para una incorporación posterior; esta etapa sirve el modelo ajustado principal y sus resúmenes.
+CONAF associations and findings are regional (`09`) and cover July 2014–December 2023. They must not be extrapolated to municipalities or other periods. This release serves the main adjusted model and its summaries; correlations and group comparisons are deferred.
 
-La exploración cubre solo la región `09`, con 120 meses de 2014–2023. No reemplaza las tendencias originales ni sus familias Holm de cuatro pruebas regionales y 127 comunales. Las pendientes usan unidades por década; la humedad específica permanece en kg/kg (los resúmenes la expresan en g/kg). Los VPD son proxies calculados con medias, no VPD medio verdadero ni extremos diarios; no tienen asociaciones ajustadas CONAF. No se amplían las series observadas ni se calculan series mensuales derivadas. Tampoco se incorporan los archivos Giovanni 2005–2025.
+The exploration covers only region `09`, using 120 months from 2014–2023. It does not replace the original trends or their Holm families of four regional and 127 municipal tests. Slopes use units per decade; specific humidity remains in kg/kg, while summaries express it in g/kg. VPD estimates are proxies calculated from means, not true mean VPD or daily extremes, and have no evaluated adjusted CONAF associations. Observed series are not extended, derived monthly series are not calculated, and the Giovanni 2005–2025 files are not integrated.
 
-No se exponen metadatos técnicos, hashes ni auditorías. Los faltantes son `null`, no cero. Filtrar no modifica el período de las tendencias ni recalcula Holm. Una consulta válida sin observaciones devuelve `[]`; errores: `404` para conjunto desconocido, `422` para parámetros incompatibles y `503` para resultados no disponibles, desactualizados o inválidos.
+Published trends always refer to the full 2014–2023 period: filtering a series does not change its trend estimate or recalculate Holm corrections. Original methods, references, and corrections are preserved; statistical evidence must not be inferred from the marginal confidence interval alone.
 
-## Pruebas
+Technical metadata, hashes, and audit records are not exposed. Missing values are `null`, not zero. A valid query without observations returns `[]`. Errors use `404` for an unknown dataset, `422` for incompatible parameters, and `503` for unavailable, outdated, or invalid results.
+
+## Tests
 
 ```sh
 .venv/bin/python -m pip check
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-Las pruebas usan datos sintéticos y copias temporales de los datos reales para comprobar modificaciones, sin alterar los datasets del proyecto.
+Tests use synthetic data and temporary copies of real data to check modifications without altering the project's datasets.

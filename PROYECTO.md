@@ -1,36 +1,38 @@
-# DeHecho — Inspector estadístico de La Araucanía
+# DeHecho — Statistical Explorer of La Araucanía
 
-## Objetivo
+The project introduction is also included in the [README](README.md), alongside the interface preview, frontend repository, and setup instructions.
 
-Permitir consultar **cómo cambian las condiciones ambientales, dónde, cuánto y con qué evidencia estadística**, y relacionarlas con los incendios registrados por CONAF.
+## Objective
 
-Así se responde al desafío [Earth System Trend Detective de NASA Space Apps 2026](https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/?tab=details). Se aprovechan los datos existentes; **la predicción y las alertas quedan fuera del alcance inicial**.
+Enable users to examine **how environmental conditions change, where, by how much, and with what statistical evidence**, and explore their associations with wildfires recorded by Chile's National Forestry Corporation (CONAF).
 
-## Qué permitirá consultar
+The project addresses the [NASA Space Apps 2026 Earth System Trend Detective challenge](https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/?tab=details). It builds on existing data; **forecasting and alerts are outside the initial scope**.
 
-- Series de temperatura, precipitación, humedad relativa y humedad del suelo por región o comuna.
-- Anomalías: diferencias respecto de lo habitual para cada mes en el período de referencia.
-- Tendencias 2014–2023, con magnitud, incertidumbre y evidencia estadística.
-- Asociaciones con incendios, episodios y resultados del modelo explicativo ya estimado.
+## What can be explored
 
-Los análisis están disponibles en `analisis.ipynb` y sus resultados en `datos_mensuales_2014_2023/limpios/`. La API sirve series y tendencias ambientales, los cuatro efectos ajustados del modelo CONAF y sus resúmenes. Correlaciones y contrastes quedan para una incorporación posterior. Solo se requiere reejecución si cambian los datos efectivos o el análisis; no se recalcula por consulta. Véase [ARQUITECTURA.md](ARQUITECTURA.md).
+- Temperature, precipitation, relative humidity, and soil-moisture series at regional or municipal scale.
+- Anomalies: departures from typical conditions for each calendar month within the reference period.
+- Trends for 2014–2023, including magnitude, uncertainty, and statistical evidence.
+- Wildfire associations, episodes, and results from the previously fitted explanatory model.
 
-También sirve las 14 tendencias regionales exploratorias existentes en `docs/investigacion/` y cinco resúmenes ambientales. Mantienen su propia corrección Holm, sin sustituir el análisis original ni ampliar las series.
+The analyses are available in `analisis.ipynb`, with outputs in `datos_mensuales_2014_2023/limpios/`. The API serves environmental series and trends, the four adjusted associations from the CONAF model, and their summaries. Correlations and group comparisons are deferred. Analyses only need to be rerun if the underlying data or analysis changes; nothing is recalculated per query. See the [architecture](ARQUITECTURA.md).
 
-## Datos y límites importantes
+The API also serves the 14 existing exploratory regional trends in `docs/investigacion/` and five environmental summaries. These retain their own Holm correction, without replacing the original analysis or extending observed series.
 
-- **Ambiente:** 120 meses de 2014–2023 y 32 comunas. El contexto regional conjunto con incendios cubre 114 meses: julio de 2014–diciembre de 2023.
-- **Incendios:** conteos regionales mensuales y comunales por temporada julio–junio. No hay coordenadas de incendios ni desglose comunal mensual; no se deben inventar ni repartir totales regionales entre comunas.
-- **Cruce regional:** `definitivo.csv` alinea los mismos 114 meses conjuntos por `fecha` calendario; `año_x` conserva el inicio de temporada. No sustituye los 120 meses de la base ambiental utilizada para tendencias.
-- **Calidad:** excluir suelo de Saavedra por baja cobertura, sin eliminar sus otras variables. Una cobertura desconocida no equivale a 100 %. Los faltantes no son ceros.
-- **Interpretación:** las asociaciones y el modelo binomial negativo son explicativos, no prueban causalidad ni predicen riesgo. Los conteos no representan superficie quemada o gravedad. Las comunas pueden compartir píxeles y no son réplicas independientes.
+## Data and important limitations
 
-## Qué respaldan los resultados actuales
+- **Environment:** 120 months from 2014–2023 and 32 municipalities. The joint regional wildfire context covers 114 months: July 2014–December 2023.
+- **Wildfires:** regional monthly counts and municipal counts by July–June fire season. No fire coordinates or municipal monthly breakdowns are available; these must not be invented, nor regional totals distributed across municipalities.
+- **Regional alignment:** `definitivo.csv` aligns the same 114 matched months by calendar `fecha`; `año_x` retains the fire-season starting year. It does not replace the 120-month environmental baseline used for trends.
+- **Quality:** exclude Saavedra's soil moisture because of low coverage, without removing its other variables. Unknown coverage is not equivalent to 100%. Missing values are not zeros.
+- **Interpretation:** the associations and negative binomial model are explanatory; they neither prove causality nor predict risk. Counts do not represent burned area or severity. Municipalities may share source pixels and are not independent replicates.
 
-En el análisis original de cuatro variables, la **humedad relativa presenta descenso con evidencia** en la región y sus comunas durante 2014–2023. Las otras tres variables no alcanzan evidencia tras la corrección aplicada; eso no demuestra ausencia de cambio.
+## What the current results support
 
-La exploración regional muestra aumento de picos mensuales y descenso de punto de rocío y humedad específica. Los proxies VPD no son el VPD medio verdadero; las señales comparten información y no prueban nuevas asociaciones con incendios ni diferencias entre pendientes. No se extrapolan a comunas.
+In the original four-variable analysis, **relative humidity declines with statistical evidence** across the region and its municipalities during 2014–2023. The other three variables do not meet the evidence threshold after the applied correction; this does not demonstrate an absence of change.
 
-El **déficit de lluvia conserva la asociación ajustada con incendios más estable entre las variantes examinadas**. No debe confundirse con la variable que más cambia ni con un predictor validado.
+The regional exploration shows increasing area-mean monthly temperature peaks and declining dew point and specific humidity. Vapor pressure deficit (VPD) proxies are not true mean VPD; the signals share underlying information and establish neither new wildfire associations nor differences between slopes. They must not be extrapolated to municipalities.
 
-Las tendencias publicadas corresponden al período completo 2014–2023: filtrar una serie no cambia su estimación. Deben conservarse los métodos, referencias y correcciones de los reportes originales; no se deduce la evidencia solo del intervalo de confianza.
+**Rainfall deficit retains the most stable adjusted association with wildfires across the variants examined.** It must not be confused with the variable changing most strongly or with a validated predictor.
+
+Published trends refer to the full 2014–2023 period: filtering a series does not change its estimate. Methods, references, and corrections from the original reports must be preserved; statistical evidence cannot be inferred from the confidence interval alone.

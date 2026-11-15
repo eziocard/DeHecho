@@ -1,56 +1,56 @@
-# Arquitectura mínima del inspector estadístico
+# Statistical Explorer Architecture
 
-## Enfoque
+## Approach
 
-**Archivos existentes → validación y carga en memoria → consultas FastAPI → respuestas JSON.**
+**Existing files → validation and in-memory loading → FastAPI queries → JSON responses.**
 
-Se sirven series y análisis ya calculados. No hacen falta base de datos, microservicios ni ejecutar notebooks por petición. El frontend usará **Blockbench**; su integración con la API se definirá posteriormente.
+The service exposes existing time series and precomputed analyses. No database, microservices, or per-request notebook execution are needed. The separate [frontend repository](https://github.com/maiki-22/low-poly-studio) contains the presentation interface using **Blockbench** assets; API integration will be defined separately.
 
-Al arrancar se capturan una sola vez los CSV y JSON del proyecto y se contrastan con sus reportes. Los cargadores ambiental, CONAF y exploratorio son independientes. No se necesitan publicaciones ni configuración adicional. Si cambian las fuentes, se bloquean los resultados afectados; la reejecución ocurre fuera de la API y se reinicia el servicio para cargar los archivos actualizados. Uso en [README.md](README.md).
+At startup, the project's CSV and JSON inputs are captured once and checked against their reports. Environmental, CONAF, and exploratory loaders are independent. No publication artifacts or additional configuration are required. Source changes invalidate affected results; analyses are rerun outside the API, and the service must be restarted to load updated files. See the [README](README.md) for usage.
 
-## Entradas
+## Inputs
 
-En `datos_mensuales_2014_2023/limpios/`:
+In `datos_mensuales_2014_2023/limpios/`:
 
-| Archivos | Uso |
+| Files | Purpose |
 | --- | --- |
-| `region_mensual_limpio.csv`, `comunas_mensual_limpio.csv` | Series ambientales. |
-| `incendios_contexto_mensual.csv` | Contexto regional conjunto, anomalías y antecedentes. |
-| `tendencias_ambientales_2014_2023.csv`, `reporte_tendencias.json` | Tendencias, evidencia y método. |
-| `modelo_conaf_binomial_negativa.csv`, `hallazgos_exploratorios.json` | Asociaciones, modelo explicativo, episodios y sensibilidad. |
-| `reporte_validacion.json` | Reglas y advertencias de calidad. |
+| `region_mensual_limpio.csv`, `comunas_mensual_limpio.csv` | Environmental time series. |
+| `incendios_contexto_mensual.csv` | Joint regional context, anomalies, and antecedent conditions. |
+| `tendencias_ambientales_2014_2023.csv`, `reporte_tendencias.json` | Trends, evidence, and methods. |
+| `modelo_conaf_binomial_negativa.csv`, `hallazgos_exploratorios.json` | Associations, explanatory model, episodes, and sensitivity. |
+| `reporte_validacion.json` | Quality rules and warnings. |
 
-Se complementan con `metadatos.json` de la carpeta superior y las fuentes de `data/conaf/`. Se concilia `definitivo.csv` con el contexto mensual en el período publicado: es un cruce regional existente, no una fuente adicional de observaciones.
+These are supplemented by `metadatos.json` in the parent directory and the sources in `data/conaf/`. `definitivo.csv` is reconciled with the monthly context over the published period: it is an existing regional join, not an additional source of observations.
 
-`docs/investigacion/exploracion_regional.csv` y `.json` se leen donde están, sin modificarlos. Aportan 14 tendencias regionales exploratorias y cinco resúmenes; se validan entre sí y contra las dos fuentes limpias registradas. No se amplían series ni se calculan proxies mensuales.
+`docs/investigacion/exploracion_regional.csv` and `.json` are read in place, without modification. They provide 14 exploratory regional trends and five summaries, validated against each other and the two recorded clean source files. No series are extended and no monthly proxies are calculated.
 
-## Módulos necesarios
+## Modules
 
-| Módulo | Responsabilidad |
+| Module | Responsibility |
 | --- | --- |
-| `datos` | Leer archivos, validar fechas y códigos, aplicar calidad y conservar procedencia. No modificar fuentes. |
-| `consultas` | Filtrar series y preparar resúmenes compatibles con su escala temporal. |
-| `resultados` | Consultar resultados publicados y proyectar solo los campos científicos necesarios, sin recalcularlos. |
-| `api` | Validar parámetros con Pydantic y exponer resultados mínimos mediante FastAPI; mantener auditoría y métodos internos. |
+| `datos` | Read files, validate dates and codes, apply quality rules, and preserve provenance. Never modify sources. |
+| `consultas` | Filter series and prepare summaries consistent with their temporal scale. |
+| `resultados` | Read published results and expose only the necessary scientific fields, without recalculation. |
+| `api` | Validate parameters with Pydantic and expose minimal results through FastAPI; keep audit records and methods internal. |
 
-La carga utiliza CSV/JSON y validación con Pydantic. SciPy y statsmodels quedan en el proceso de estimación, fuera de las peticiones del inspector.
+Loading uses CSV/JSON files and Pydantic validation. SciPy and statsmodels belong to the estimation workflow, outside the inspector's request handling.
 
-## Consultas mínimas
+## Endpoints
 
-- `GET /health`: solo estado del servicio y disponibilidad global.
-- `GET /api/catalogo`: conjuntos, disponibilidad, variables, unidades y territorios.
-- `GET /api/series`: valores y contexto por variable, territorio y período.
-- `GET /api/tendencias`: estimaciones originales (`tendencias_ambientales`) y exploratorias regionales (`tendencias_regionales_exploratorias`) para 2014–2023.
-- `GET /api/asociaciones`: cuatro razones de tasas ajustadas (`asociaciones_conaf`); correlaciones y contrastes quedan pendientes.
-- `GET /api/hallazgos`: cinco resúmenes CONAF (`hallazgos_conaf`) y cinco ambientales exploratorios (`hallazgos_ambientales`).
+- `GET /health`: service status and overall availability only.
+- `GET /api/catalogo`: datasets, availability, variables, units, and territories.
+- `GET /api/series`: values and context by variable, territory, and period.
+- `GET /api/tendencias`: original estimates (`tendencias_ambientales`) and exploratory regional estimates (`tendencias_regionales_exploratorias`) for 2014–2023.
+- `GET /api/asociaciones`: four adjusted rate ratios (`asociaciones_conaf`); correlations and group comparisons are deferred.
+- `GET /api/hallazgos`: five CONAF summaries (`hallazgos_conaf`) and five exploratory environmental summaries (`hallazgos_ambientales`).
 
-Las consultas devuelven **listas de resultados sin metadatos técnicos**. Las series agrupan puntos; las tendencias entregan pendiente y evidencia; las asociaciones incluyen razón de tasas, intervalo marginal, p Holm, muestra y dirección del cambio ambiental. Los faltantes conservan su motivo. Fuentes, métodos, hashes y diagnósticos permanecen internos, sin otro endpoint de metadatos.
+Data queries return **lists of results without technical metadata**. Series group data points; trends provide slopes and evidence; associations include rate ratios, marginal confidence intervals, Holm-adjusted p-values, sample size, and direction of environmental change. Missing values retain their reason. Sources, methods, hashes, and diagnostics remain internal, with no separate metadata endpoint.
 
-## Reglas que no deben perderse
+## Scientific safeguards
 
-- **No recalcular al filtrar:** preservar el período 2014–2023 y las familias Holm publicadas: cuatro pruebas regionales y 127 comunales originales; 14 regionales exploratorias, por separado. Los intervalos son marginales; la evidencia se determina con el p corregido. Mantener las configuraciones HAC de cada análisis según sus reportes.
-- **No mezclar escalas ni referencias:** incendios comunales por temporada y regionales por mes. En el contexto exportado, las anomalías contemporáneas usan 114 meses y los antecedentes una referencia ambiental de 120 meses.
-- **No confundir faltantes con ceros:** responder `null` con motivo; distinguir exclusión por calidad, cobertura desconocida y evidencia insuficiente. Mantener `high_activity = null` fuera de la población comparada; alta actividad histórica no significa riesgo futuro.
-- **No publicar pronósticos:** el modelo existente es explicativo. El recálculo para otros intervalos y la predicción quedan fuera del alcance inicial.
+- **Do not recalculate when filtering:** preserve the 2014–2023 period and published Holm families: four original regional tests and 127 municipal tests, with 14 exploratory regional tests kept separate. Intervals are marginal; evidence is determined by the adjusted p-value. Preserve each analysis's heteroskedasticity- and autocorrelation-consistent (HAC) settings as documented in its report.
+- **Do not mix scales or reference periods:** municipal wildfire counts are seasonal; regional counts are monthly. In the exported context, contemporaneous anomalies use 114 months, while antecedent conditions use a 120-month environmental reference.
+- **Do not confuse missing values with zeros:** return `null` with a reason; distinguish quality exclusions, unknown coverage, and insufficient evidence. Keep `high_activity = null` outside the comparison population; high historical activity does not imply future risk.
+- **Do not publish forecasts:** the existing model is explanatory. Recalculation for other intervals and prediction are outside the initial scope.
 
-Las cinco consultas de datos están implementadas con pruebas sintéticas y datos reales. Se conservan los resultados existentes, sin reestimación; esta propuesta no exige nuevas mediciones.
+The five data endpoints are implemented and tested with synthetic and real data. Existing results are preserved without re-estimation; this architecture requires no new measurements.
