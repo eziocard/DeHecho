@@ -2,7 +2,7 @@
 
 **A statistical explorer of environmental change and wildfire associations in La Araucanía, Chile.**
 
-![DeHecho interface showing a low-poly map of La Araucanía, environmental indicators, and a monthly time series](image.webp)
+![DeHecho interface showing a low-poly map of La Araucanía, environmental indicators, and a monthly time series](image.png)
 
 *Interface preview. The frontend is maintained in a separate repository: [low-poly-studio](https://github.com/maiki-22/low-poly-studio).*
 
