@@ -4,12 +4,20 @@ Inspector estadístico de La Araucanía. Véanse [el proyecto](PROYECTO.md) y [l
 
 ## Ejecutar en local
 
-Desde la raíz del proyecto, con Python 3.11 o superior. Si aún no tienes el entorno:
+Desde la raíz del proyecto, con Python 3.12 o superior. El entorno de referencia usa Python 3.14.10 en Linux. Crea el entorno solo si todavía no existe:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-api.txt
 ```
+
+Instala o actualiza las dependencias de API, análisis y pruebas desde el único archivo:
+
+```sh
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pip check
+```
+
+`requirements.txt` conserva también los paquetes adicionales del entorno de trabajo. No lo reemplaces con `pip freeze` sin revisar el cambio: ese comando refleja solo lo instalado en el intérprete elegido, no lo que necesita todo el proyecto.
 
 Para iniciar:
 
@@ -61,7 +69,7 @@ No se exponen metadatos técnicos, hashes ni auditorías. Los faltantes son `nul
 ## Pruebas
 
 ```sh
-.venv/bin/python -m pip install -r requirements-api-test.txt
+.venv/bin/python -m pip check
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
