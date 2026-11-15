@@ -1,0 +1,572 @@
+{
+  "status": "exploratory_not_published_to_API",
+  "period": "2014-01/2023-12",
+  "geography": "La Araucanía, región 09; no nuevas inferencias comunales",
+  "model": "OLS: 12 interceptos mensuales y tiempo en décadas; HAC Bartlett, n/(n-13), normal asintótica; principal 12 meses",
+  "multiplicity": "Holm sobre las 14 series regionales examinadas, por cada ventana HAC; familia distinta de la publicación original",
+  "derived_definitions": {
+    "es": "0.6108 * exp(17.27*T/(T+237.3)) kPa",
+    "vpd_T_RH": "es(T)*(1-RH/100)",
+    "vpd_T_Td": "es(T)-es(Td)",
+    "rh_T_Td": "100*es(Td)/es(T)"
+  },
+  "limitations": [
+    "Exploración posterior a observar los datos, sin confirmación independiente.",
+    "VPD calculado DESPUÉS de promediar tiempo y espacio: proxy, no promedio verdadero ni extremo diario.",
+    "Series derivadas y POWER/MERRA-2 comparten información; no validaciones independientes.",
+    "HAC no corrige sesgos de fuente, confusión ni cambios de régimen.",
+    "División 2019 ilustrativa: no prueba de quiebre ni elección de período por significación."
+  ],
+  "checks": {
+    "published_four_slopes_SE_CI_p_and_Holm_reproduced": true,
+    "continuous_months": 120
+  },
+  "source_sha256": {
+    "datos_mensuales_2014_2023/limpios/region_mensual_limpio.csv": "af50b69cf9fbb576aeb88922e798f9d6817100e774f4feb3692968d730729a82",
+    "datos_mensuales_2014_2023/limpios/tendencias_ambientales_2014_2023.csv": "670d694e821950f1084b5d7f4ef2931a0c8d80bdbf997e93816dd5f126022c94"
+  },
+  "results": [
+    {
+      "variable": "temperature_2m_c",
+      "unit": "°C",
+      "n": 120,
+      "slope_per_decade": 0.6519696969697087,
+      "standard_error_per_decade": 0.3697813167079719,
+      "CI95_low_per_decade": -0.0727883659337153,
+      "CI95_high_per_decade": 1.3767277598731327,
+      "p_raw": 0.0778798597023745,
+      "p_holm_14": 0.3357015276567682,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.5774045660992175,
+        "8": 0.5855282215740465,
+        "12": 0.3357015276567682,
+        "18": 0.13083125574431925
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": 0.5903472222222369,
+        "2015": 0.7917002688172157,
+        "2016": 0.7943688725490318,
+        "2017": 0.5972395833333441,
+        "2018": 0.6215878378378472,
+        "2019": 0.6591948198198306,
+        "2020": 0.675607638888899,
+        "2021": 0.5162132352941301,
+        "2022": 0.7489852150537758,
+        "2023": 0.5065972222222376
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.6096666666666092,
+        "2019-2023": 1.1563333333333732
+      }
+    },
+    {
+      "variable": "precipitation_mm",
+      "unit": "mm/mes",
+      "n": 120,
+      "slope_per_decade": -37.090949494950024,
+      "standard_error_per_decade": 17.827859918826682,
+      "CI95_low_per_decade": -72.03291285727548,
+      "CI95_high_per_decade": -2.1489861326245645,
+      "p_raw": 0.03747924883834549,
+      "p_holm_14": 0.22487549303007293,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.3629509980581962,
+        "8": 0.3446616969271496,
+        "12": 0.22487549303007293,
+        "18": 0.14124652276122762
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": -34.746083333333985,
+        "2015": -30.76379569892547,
+        "2016": -45.18971323529461,
+        "2017": -34.978128472222835,
+        "2018": -35.896610360360874,
+        "2019": -36.60282319819851,
+        "2020": -35.58573958333386,
+        "2021": -26.179737745098404,
+        "2022": -37.04005779569949,
+        "2023": -57.43000000000064
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -8.432750000000059,
+        "2019-2023": 33.30616666666238
+      }
+    },
+    {
+      "variable": "relative_humidity_2m_pct",
+      "unit": "puntos porcentuales",
+      "n": 120,
+      "slope_per_decade": -9.343242424242467,
+      "standard_error_per_decade": 1.789072132250633,
+      "CI95_low_per_decade": -12.849759369197987,
+      "CI95_high_per_decade": -5.8367254792869465,
+      "p_raw": 1.766231418670765e-07,
+      "p_holm_14": 2.1194777024049177e-06,
+      "p_holm_14_by_HAC_lag": {
+        "4": 1.669091511207298e-06,
+        "8": 6.5667053539416546e-06,
+        "12": 2.1194777024049177e-06,
+        "18": 3.882908392739597e-06
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": -10.545305555555618,
+        "2015": -9.80966532258069,
+        "2016": -9.683712009803951,
+        "2017": -8.973798611111155,
+        "2018": -9.170636261261318,
+        "2019": -9.352300675675707,
+        "2020": -9.625059027777821,
+        "2021": -9.19086887254906,
+        "2022": -8.720224462365643,
+        "2023": -8.425069444444476
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 1.2504166666665957,
+        "2019-2023": -14.271333333333635
+      }
+    },
+    {
+      "variable": "soil_moisture_0_10cm_kgm2",
+      "unit": "kg/m²",
+      "n": 120,
+      "slope_per_decade": -1.4781262626262859,
+      "standard_error_per_decade": 0.8073955759190331,
+      "CI95_low_per_decade": -3.0605925127045657,
+      "CI95_high_per_decade": 0.10433998745199369,
+      "p_raw": 0.06714030553135364,
+      "p_holm_14": 0.3357015276567682,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.5774045660992175,
+        "8": 0.5855282215740465,
+        "12": 0.3357015276567682,
+        "18": 0.1640842127501545
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": -0.717611111111151,
+        "2015": -1.810288978494642,
+        "2016": -1.9637291666666854,
+        "2017": -1.2781319444444674,
+        "2018": -1.3759279279279504,
+        "2019": -1.4118040540540753,
+        "2020": -1.2888888888889147,
+        "2021": -1.0951200980392348,
+        "2022": -2.128375000000019,
+        "2023": -1.7314027777778058
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 1.27008333333326,
+        "2019-2023": 3.15308333333321
+      }
+    },
+    {
+      "variable": "dewpoint_2m_c",
+      "unit": "°C",
+      "n": 120,
+      "slope_per_decade": -1.9377171717171733,
+      "standard_error_per_decade": 0.4017278550669422,
+      "CI95_low_per_decade": -2.7250892992349067,
+      "CI95_high_per_decade": -1.15034504419944,
+      "p_raw": 1.41090953593732e-06,
+      "p_holm_14": 1.552000489531052e-05,
+      "p_holm_14_by_HAC_lag": {
+        "4": 3.783763702044076e-06,
+        "8": 3.936700727366768e-06,
+        "12": 1.552000489531052e-05,
+        "18": 2.6679337447867263e-05
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": -2.3797777777777824,
+        "2015": -1.9595174731182816,
+        "2016": -1.8394987745098008,
+        "2017": -1.8954236111111133,
+        "2018": -1.9170731981982054,
+        "2019": -1.9339650900900895,
+        "2020": -1.9820034722222255,
+        "2021": -2.0399276960784323,
+        "2022": -1.6530793010752731,
+        "2023": -1.8231805555555496
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.024083333333306114,
+        "2019-2023": -2.818333333333373
+      }
+    },
+    {
+      "variable": "specific_humidity_2m_kgkg",
+      "unit": "kg/kg",
+      "n": 120,
+      "slope_per_decade": -0.000761437070707071,
+      "standard_error_per_decade": 0.0001722371402677434,
+      "CI95_low_per_decade": -0.0010990156624320214,
+      "CI95_high_per_decade": -0.00042385847898212045,
+      "p_raw": 9.830677598439917e-06,
+      "p_holm_14": 8.847609838595925e-05,
+      "p_holm_14_by_HAC_lag": {
+        "4": 5.1329434028457376e-05,
+        "8": 3.344477679683497e-05,
+        "12": 8.847609838595925e-05,
+        "18": 0.00012167745469161377
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": -0.0009644569444444461,
+        "2015": -0.0007610749193548393,
+        "2016": -0.0007201312254901942,
+        "2017": -0.0007400027430555562,
+        "2018": -0.0007515590765765792,
+        "2019": -0.0007581612612612606,
+        "2020": -0.0007795570486111124,
+        "2021": -0.0007942243014705887,
+        "2022": -0.0006526980779569904,
+        "2023": -0.0007168533333333302
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 0.00012044250000001143,
+        "2019-2023": -0.001051073333333347
+      }
+    },
+    {
+      "variable": "soil_temperature_0_10cm_c",
+      "unit": "°C",
+      "n": 120,
+      "slope_per_decade": -0.15239393939392942,
+      "standard_error_per_decade": 0.3062628551959101,
+      "CI95_low_per_decade": -0.7526581053803189,
+      "CI95_high_per_decade": 0.44787022659246,
+      "p_raw": 0.6187716602400188,
+      "p_holm_14": 0.689454121311404,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.6920484379365058,
+        "8": 0.6937064157242822,
+        "12": 0.689454121311404,
+        "18": 0.5873795353408177
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": -0.4258888888888772,
+        "2015": -0.09243548387095862,
+        "2016": -0.03470343137253718,
+        "2017": -0.2124756944444349,
+        "2018": -0.15197635135134524,
+        "2019": -0.1684301801801705,
+        "2020": -0.1622361111111038,
+        "2021": -0.3126813725490087,
+        "2022": 0.07361693548388056,
+        "2023": -0.03895833333331838
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 0.12175000000005284,
+        "2019-2023": -1.3469166666666372
+      }
+    },
+    {
+      "variable": "wind_speed_10m_ms",
+      "unit": "m/s",
+      "n": 120,
+      "slope_per_decade": 0.12827272727272454,
+      "standard_error_per_decade": 0.08823516976984061,
+      "CI95_low_per_decade": -0.04466502764594035,
+      "CI95_high_per_decade": 0.30121048219138946,
+      "p_raw": 0.14601296103344316,
+      "p_holm_14": 0.43803888310032946,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.5774045660992175,
+        "8": 0.5855282215740465,
+        "12": 0.43803888310032946,
+        "18": 0.4372780597809076
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": 0.2152916666666637,
+        "2015": 0.12639784946236246,
+        "2016": 0.07971936274509592,
+        "2017": 0.1357083333333307,
+        "2018": 0.12550450450450193,
+        "2019": 0.12420495495495355,
+        "2020": 0.13227430555555292,
+        "2021": 0.16989093137254582,
+        "2022": 0.10279166666666423,
+        "2023": 0.07551388888888408
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.12350000000001325,
+        "2019-2023": 0.19883333333332384
+      }
+    },
+    {
+      "variable": "aod_550",
+      "unit": "adimensional",
+      "n": 120,
+      "slope_per_decade": 0.004179060606060733,
+      "standard_error_per_decade": 0.00442291140361883,
+      "CI95_low_per_decade": -0.00448968645184367,
+      "CI95_high_per_decade": 0.012847807663965136,
+      "p_raw": 0.344727060655702,
+      "p_holm_14": 0.689454121311404,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.6475678845577043,
+        "8": 0.6937064157242822,
+        "12": 0.689454121311404,
+        "18": 0.5873795353408177
+      },
+      "supported_all_HAC_lags": false,
+      "omit_year_slopes": {
+        "2014": 0.001084583333333507,
+        "2015": 0.008260213709677527,
+        "2016": 0.004163000000000127,
+        "2017": 0.0036620451388890115,
+        "2018": 0.00383696621621632,
+        "2019": 0.004207477477477634,
+        "2020": 0.002250218750000147,
+        "2021": 0.005774819852941301,
+        "2022": 0.004922361559139835,
+        "2023": 0.0034360972222223693
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.008231333333332785,
+        "2019-2023": -0.0037718333333328254
+      }
+    },
+    {
+      "variable": "temperature_monthly_peak_area_mean_c",
+      "unit": "°C",
+      "n": 120,
+      "slope_per_decade": 3.8666616161616245,
+      "standard_error_per_decade": 0.6084925360658795,
+      "CI95_low_per_decade": 2.674038160611061,
+      "CI95_high_per_decade": 5.059285071712188,
+      "p_raw": 2.091150453848524e-10,
+      "p_holm_14": 2.9276106353879337e-09,
+      "p_holm_14_by_HAC_lag": {
+        "4": 1.2831747314789107e-06,
+        "8": 2.1441168928757535e-07,
+        "12": 2.9276106353879337e-09,
+        "18": 4.556867500787763e-11
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": 4.290666666666688,
+        "2015": 3.7556720430107613,
+        "2016": 4.074250000000003,
+        "2017": 3.79514583333334,
+        "2018": 3.8061869369369514,
+        "2019": 3.876832207207207,
+        "2020": 3.944947916666679,
+        "2021": 3.708245098039228,
+        "2022": 3.616264784946252,
+        "2023": 3.85556944444444
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 0.9123333333333205,
+        "2019-2023": 5.013666666666749
+      }
+    },
+    {
+      "variable": "temperature_monthly_max_c",
+      "unit": "°C",
+      "n": 120,
+      "slope_per_decade": 3.635101010101022,
+      "standard_error_per_decade": 0.7597173104169793,
+      "CI95_low_per_decade": 2.1460824432521064,
+      "CI95_high_per_decade": 5.124119576949937,
+      "p_raw": 1.711513692698754e-06,
+      "p_holm_14": 1.711513692698754e-05,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.0002040579904769262,
+        "8": 7.42414209969905e-05,
+        "12": 1.711513692698754e-05,
+        "18": 2.12271200557464e-07
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": 4.129861111111138,
+        "2015": 3.2899193548387196,
+        "2016": 4.233455882352951,
+        "2017": 3.415104166666676,
+        "2018": 3.5699887387387585,
+        "2019": 3.677421171171173,
+        "2020": 3.5899305555555663,
+        "2021": 3.495098039215702,
+        "2022": 3.407526881720441,
+        "2023": 3.6055555555555605
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 0.07583333333328657,
+        "2019-2023": 5.145000000000139
+      }
+    },
+    {
+      "variable": "vpd_from_monthly_T_RH_kpa",
+      "unit": "kPa; proxy de medias mensuales",
+      "n": 120,
+      "slope_per_decade": 0.1569242813246426,
+      "standard_error_per_decade": 0.036860419809373844,
+      "CI95_low_per_decade": 0.08467918604324311,
+      "CI95_high_per_decade": 0.22916937660604209,
+      "p_raw": 2.0695038046068128e-05,
+      "p_holm_14": 0.0001448652663224769,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.0012567389353758016,
+        "8": 0.00104696098524628,
+        "12": 0.0001448652663224769,
+        "18": 0.00011348730438708984
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": 0.17488649788721908,
+        "2015": 0.17061645255333546,
+        "2016": 0.16057947483756313,
+        "2017": 0.15116963005792294,
+        "2018": 0.15347416813616616,
+        "2019": 0.15723761069039072,
+        "2020": 0.16087757520361196,
+        "2021": 0.15247358223818666,
+        "2022": 0.14863571128138892,
+        "2023": 0.1404600432861977
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.040185418204098516,
+        "2019-2023": 0.23937142225302263
+      }
+    },
+    {
+      "variable": "vpd_from_monthly_T_Td_kpa",
+      "unit": "kPa; proxy de medias mensuales",
+      "n": 120,
+      "slope_per_decade": 0.192885467274464,
+      "standard_error_per_decade": 0.04402824568747897,
+      "CI95_low_per_decade": 0.10659169142452429,
+      "CI95_high_per_decade": 0.27917924312440373,
+      "p_raw": 1.1816391882240544e-05,
+      "p_holm_14": 9.453113505792435e-05,
+      "p_holm_14_by_HAC_lag": {
+        "4": 0.0008903976832004348,
+        "8": 0.0007402863223447127,
+        "12": 9.453113505792435e-05,
+        "18": 7.41108406684478e-05
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": 0.21649462330354985,
+        "2015": 0.20862823801128488,
+        "2016": 0.19629852329069084,
+        "2017": 0.1860567595545607,
+        "2018": 0.18871070452985592,
+        "2019": 0.19332138850170358,
+        "2020": 0.1971159423649657,
+        "2021": 0.1874031425175668,
+        "2022": 0.18191142386692946,
+        "2023": 0.17499475942226775
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": -0.04801447536793258,
+        "2019-2023": 0.2884724489166492
+      }
+    },
+    {
+      "variable": "rh_from_monthly_T_Td_pct",
+      "unit": "puntos porcentuales; diagnóstico",
+      "n": 120,
+      "slope_per_decade": -11.640035050798394,
+      "standard_error_per_decade": 2.1839789492660997,
+      "CI95_low_per_decade": -15.920555134353577,
+      "CI95_high_per_decade": -7.35951496724321,
+      "p_raw": 9.83546871511569e-08,
+      "p_holm_14": 1.2786109329650399e-06,
+      "p_holm_14_by_HAC_lag": {
+        "4": 8.62185076109645e-07,
+        "8": 3.936700727366768e-06,
+        "12": 1.2786109329650399e-06,
+        "18": 2.4715228677647823e-06
+      },
+      "supported_all_HAC_lags": true,
+      "omit_year_slopes": {
+        "2014": -13.235060163522677,
+        "2015": -12.17995771564855,
+        "2016": -11.985868787082898,
+        "2017": -11.193794935131642,
+        "2018": -11.426709681906585,
+        "2019": -11.65638151114052,
+        "2020": -11.945171553886318,
+        "2021": -11.445742249657503,
+        "2022": -10.804497634113426,
+        "2023": -10.651662352191629
+      },
+      "half_period_slopes_descriptive_only": {
+        "2014-2018": 1.600843129015626,
+        "2019-2023": -17.440734820817706
+      }
+    }
+  ],
+  "giovanni_inventory": [
+    {
+      "file": "Espesor-optico-de-aerosoles-M2TMNXAER-Giovanni.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=M2TMNXAER_5_12_4_TOTEXTTAU&dataKeyword=M2TMNXAER&portal=GIOVANNI&format=json\"",
+      "sha256": "9e1470346531d76fcdf6e533a3899174fd50bf06c1d4e4e86eb7adf7a98ad72a"
+    },
+    {
+      "file": "Humedad-especifica-a-2-metros-M2TMNXSLV-Giovanni.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=M2TMNXSLV_5_12_4_QV2M&dataKeyword=M2TMNXSLV&portal=GIOVANNI&format=json\"",
+      "sha256": "49e5eb43ec43fa5065c29d25c789406e0e37b396a503a302c92dfd7807a55040"
+    },
+    {
+      "file": "Particulas_atmosfericas_humo.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=M2IMNXGAS_5_12_4_AODANA&portal=GIOVANNI&format=json\"",
+      "sha256": "1b287189ddf4eaad8b02b94e6a4e65061c8b694b8737c25a7233c8712750f0a2"
+    },
+    {
+      "file": "Precipitaciones-GPM_3IMERGM-Giovanni.csv",
+      "n": 249,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-09-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-09-30T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=GPM_3IMERGM_07_precipitation&portal=GIOVANNI&format=json\"",
+      "sha256": "deb434a000cfc5d2be60d41f9f48cb15097413b2f4ae13edd6f24d57bdd7b9ec"
+    },
+    {
+      "file": "Temperatura-del-aire-M2IMNXLFO-Giovanni.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=M2IMNXLFO_5_12_4_TLML(units%3DC)%2CM2IMNXLFO_5_12_4_SPEEDLML&dataKeyword=MERRA-2&portal=GIOVANNI&format=json\"",
+      "sha256": "2cbdfabab60b6ebc2b2b7033d0e3a0301e5a51cc621719a7917f6ef1752691b7"
+    },
+    {
+      "file": "Temperatura-del-suelo-GLDAS_NOAH025_M-Giovanni.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=GLDAS_NOAH025_M_2_1_SoilTMP0_10cm_inst&dataKeyword=GLDAS_NOAH025_M&portal=GIOVANNI&format=json\"",
+      "sha256": "d822b265b8bb1abdb7936d51bc3a4c5d42662f82156503cbf8748bd01e28656e"
+    },
+    {
+      "file": "Velocidad-del-viento-M2IMNXLFO-Giovanni.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=M2IMNXLFO_5_12_4_TLML(units%3DC)%2CM2IMNXLFO_5_12_4_SPEEDLML&dataKeyword=MERRA-2&portal=GIOVANNI&format=json\"",
+      "sha256": "7cb933f0bba31250e9ef0e3e528f81672135cc2a89a4e7fd4686a8d5548fc482"
+    },
+    {
+      "file": "sequedad_del_suelo_fines2025.csv",
+      "n": 252,
+      "start": "2005-01-01 00:00:00",
+      "end": "2025-12-01 00:00:00",
+      "selection": "URL to Reproduce Results:,\"https://giovanni.gsfc.nasa.gov/giovanni/#service=ArAvTs&starttime=2005-01-01T00:00:00Z&endtime=2025-12-31T23:59:59Z&shape=state_dept_countries_2017/shp_42&&data=GLDAS_NOAH025_M_2_1_RootMoist_inst&dataKeyword=Root%20zone%20soil%20moisture&portal=GIOVANNI&format=json\"",
+      "sha256": "3fc1ccb1ff027dbed669efc4e680005caada102c0c2b9bda1c87b3d592d37832"
+    }
+  ]
+}
